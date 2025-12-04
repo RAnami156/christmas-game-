@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c12s3hqyc1nd3"]
+
+[ext_resource type="Script" uid="uid://pb4ca2qtbtnb" path="res://scene/interface.gd" id="1_i8sso"]
+
+[node name="interface" type="CanvasLayer"]
+script = ExtResource("1_i8sso")
+
+[node name="exit" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 3.0
+offset_right = 695.0
+offset_bottom = 60.0
+text = "exit"
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
