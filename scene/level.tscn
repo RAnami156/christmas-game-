@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=8 format=3 uid="uid://d3ee0yqlg3jme"]
 
+[ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://scene/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
-[ext_resource type="Texture2D" uid="uid://stufiml3ni0m" path="res://icon.svg" id="2_36wlx"]
-[ext_resource type="Texture2D" uid="uid://dvwo1x0mvk4t0" path="res://1fb61a8e4f74a56382f9a09ec4233c94.jpg" id="3_dmi07"]
+[ext_resource type="Texture2D" uid="uid://stufiml3ni0m" path="res://assets/icon.svg" id="2_36wlx"]
+[ext_resource type="Texture2D" uid="uid://dvwo1x0mvk4t0" path="res://assets/1fb61a8e4f74a56382f9a09ec4233c94.jpg" id="3_dmi07"]
+[ext_resource type="PackedScene" uid="uid://dbvfu72c5mkvy" path="res://scene/snowball.tscn" id="5_ukt71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36wlx"]
 size = Vector2(222, 662)
@@ -11,6 +13,7 @@ size = Vector2(222, 662)
 size = Vector2(1557, 35)
 
 [node name="level" type="Node2D"]
+script = ExtResource("1_7g0b6")
 
 [node name="player" parent="." instance=ExtResource("1_s4405")]
 position = Vector2(612, 596)
@@ -72,3 +75,33 @@ z_index = -1
 position = Vector2(563, 326.125)
 scale = Vector2(2.0873952, 1.9826283)
 texture = ExtResource("3_dmi07")
+
+[node name="test" type="Node2D" parent="."]
+position = Vector2(699, -949)
+
+[node name="snowball" parent="test" instance=ExtResource("5_ukt71")]
+position = Vector2(-84, 994)
+
+[node name="snowball2" parent="test" instance=ExtResource("5_ukt71")]
+position = Vector2(-214, 593)
+
+[node name="snowball4" parent="test" instance=ExtResource("5_ukt71")]
+position = Vector2(-418, 897)
+
+[node name="snowball3" parent="test" instance=ExtResource("5_ukt71")]
+
+[node name="mini_shop" type="Node2D" parent="."]
+
+[node name="speed" type="Label" parent="mini_shop"]
+offset_left = 41.0
+offset_top = 48.0
+offset_right = 133.0
+offset_bottom = 71.0
+text = "speed"
+
+[node name="money" type="Label" parent="mini_shop"]
+offset_left = 43.0
+offset_top = 83.0
+offset_right = 97.0
+offset_bottom = 106.0
+text = "money"

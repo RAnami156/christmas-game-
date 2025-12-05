@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bf6ouahb5e8ea"]
+[gd_scene load_steps=23 format=3 uid="uid://bf6ouahb5e8ea"]
 
-[ext_resource type="Texture2D" uid="uid://c7dq8o2ldmd0l" path="res://1.png" id="1_fvtld"]
-[ext_resource type="Texture2D" uid="uid://cjx3qm0lgipfh" path="res://idle.png" id="2_ct4mp"]
-[ext_resource type="Texture2D" uid="uid://bvwn3v5dppnq3" path="res://NY_idle.png" id="3_ct4mp"]
+[ext_resource type="Texture2D" uid="uid://c7dq8o2ldmd0l" path="res://assets/1.png" id="1_fvtld"]
+[ext_resource type="Script" uid="uid://dmh6tj8l7ueqt" path="res://script/player.gd" id="1_s4jxa"]
+[ext_resource type="Texture2D" uid="uid://cjx3qm0lgipfh" path="res://assets/idle.png" id="2_ct4mp"]
+[ext_resource type="Texture2D" uid="uid://bvwn3v5dppnq3" path="res://assets/NY_idle.png" id="3_ct4mp"]
 [ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="3_s4jxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh5ij"]
@@ -124,16 +125,32 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvtld"]
 size = Vector2(99, 76)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
+size = Vector2(97, 69)
+
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_s4jxa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_j4wxg")
 animation = &"NY_Idle"
 autoplay = "NY_Idle"
+frame = 2
+frame_progress = 0.7749119
 
 [node name="interface" parent="AnimatedSprite2D" instance=ExtResource("3_s4jxa")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, 14)
 shape = SubResource("RectangleShape2D_fvtld")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, 2)
+shape = SubResource("RectangleShape2D_s4jxa")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

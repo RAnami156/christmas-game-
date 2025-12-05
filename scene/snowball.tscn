@@ -1,16 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbvfu72c5mkvy"]
+[gd_scene load_steps=5 format=3 uid="uid://dbvfu72c5mkvy"]
 
 [ext_resource type="Texture2D" uid="uid://xscm4040s0d4" path="res://snowball.png" id="1_p2g5r"]
+[ext_resource type="Script" uid="uid://cpyborbjsq6p3" path="res://scene/snowball.gd" id="1_qc5fd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qc5fd"]
-radius = 16.03122
+radius = 17.720045
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4n7t"]
+radius = 14.0
 
 [node name="snowball" type="Node2D"]
+script = ExtResource("1_qc5fd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="snowball" type="Sprite2D" parent="."]
 texture = ExtResource("1_p2g5r")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qc5fd")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_qc5fd")
+shape = SubResource("CircleShape2D_o4n7t")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
