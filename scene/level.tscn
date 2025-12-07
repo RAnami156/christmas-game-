@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=9 format=3 uid="uid://d3ee0yqlg3jme"]
 
-[ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://scene/level.gd" id="1_7g0b6"]
+[ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://script/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
 [ext_resource type="Texture2D" uid="uid://stufiml3ni0m" path="res://assets/icon.svg" id="2_36wlx"]
 [ext_resource type="Texture2D" uid="uid://dvwo1x0mvk4t0" path="res://assets/1fb61a8e4f74a56382f9a09ec4233c94.jpg" id="3_dmi07"]
 [ext_resource type="PackedScene" uid="uid://dbvfu72c5mkvy" path="res://scene/snowball.tscn" id="5_ukt71"]
+[ext_resource type="Script" uid="uid://burunhuqqs5yv" path="res://scene/mini_shop.gd" id="6_ismto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36wlx"]
 size = Vector2(222, 662)
@@ -23,21 +24,21 @@ position = Vector2(576, 324)
 limit_enabled = false
 limit_left = 500
 
-[node name="Label" type="Label" parent="."]
+[node name="left" type="Label" parent="."]
 z_index = 1
-offset_left = 4.0
-offset_top = 240.0
-offset_right = 256.0
-offset_bottom = 425.0
+offset_left = 34.0
+offset_top = 21.0
+offset_right = 286.0
+offset_bottom = 206.0
 text = "тут будет интерфейс
 и прокачки мб"
 
-[node name="Label2" type="Label" parent="."]
+[node name="right" type="Label" parent="."]
 z_index = 1
-offset_left = 957.0
-offset_top = 228.0
-offset_right = 1209.0
-offset_bottom = 413.0
+offset_left = 952.0
+offset_top = 20.0
+offset_right = 1204.0
+offset_bottom = 205.0
 text = "тут будут статистика"
 
 [node name="collision" type="Node2D" parent="."]
@@ -82,22 +83,8 @@ position = Vector2(699, -949)
 [node name="snowball" parent="test" instance=ExtResource("5_ukt71")]
 position = Vector2(-84, 994)
 
-[node name="snowball2" parent="test" instance=ExtResource("5_ukt71")]
-position = Vector2(-214, 593)
-
-[node name="snowball4" parent="test" instance=ExtResource("5_ukt71")]
-position = Vector2(-418, 897)
-
-[node name="snowball3" parent="test" instance=ExtResource("5_ukt71")]
-
 [node name="mini_shop" type="Node2D" parent="."]
-
-[node name="speed" type="Label" parent="mini_shop"]
-offset_left = 41.0
-offset_top = 48.0
-offset_right = 133.0
-offset_bottom = 71.0
-text = "speed"
+script = ExtResource("6_ismto")
 
 [node name="money" type="Label" parent="mini_shop"]
 offset_left = 43.0
@@ -105,3 +92,91 @@ offset_top = 83.0
 offset_right = 97.0
 offset_bottom = 106.0
 text = "money"
+
+[node name="improvements" type="Label" parent="mini_shop"]
+offset_left = 53.0
+offset_top = 122.0
+offset_right = 166.0
+offset_bottom = 145.0
+text = "improvements"
+
+[node name="speed" type="Label" parent="mini_shop/improvements"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 28.0
+offset_right = 16.0
+offset_bottom = 51.0
+text = "speed"
+
+[node name="speed_button" type="Button" parent="mini_shop/improvements/speed"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 24.0
+offset_right = 42.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 8
+text = "4$"
+
+[node name="hp" type="Label" parent="mini_shop/improvements"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 28.0
+offset_right = 85.0
+offset_bottom = 51.0
+text = "hp"
+
+[node name="hp_button" type="Button" parent="mini_shop/improvements/hp"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 8
+text = "6$"
+
+[node name="size" type="Label" parent="mini_shop/improvements"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 28.0
+offset_right = 135.0
+offset_bottom = 51.0
+text = "size"
+
+[node name="size_button" type="Button" parent="mini_shop/improvements/size"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 24.0
+offset_right = 35.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 8
+text = "10$"
+
+[node name="Button" type="Button" parent="mini_shop"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="stat" type="Node2D" parent="."]
+
+[node name="hp" type="Label" parent="stat"]
+offset_left = 964.0
+offset_top = 144.0
+offset_right = 1019.0
+offset_bottom = 193.0
+text = "hp
+"
+
+[node name="score" type="Label" parent="stat"]
+offset_left = 964.0
+offset_top = 193.0
+offset_right = 1029.0
+offset_bottom = 216.0
+text = "50 score"
+
+[node name="speed" type="Label" parent="stat"]
+offset_left = 962.0
+offset_top = 165.0
+offset_right = 1054.0
+offset_bottom = 188.0
+text = "speed"
+
+[connection signal="pressed" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_pressed"]

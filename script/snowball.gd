@@ -1,7 +1,7 @@
 extends Node2D
 
 var velocity = Vector2.ZERO
-var gravity = 150
+var gravity = 100
 var rotation_speed = 300
 
 func _ready() -> void:
