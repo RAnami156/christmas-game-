@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=8 format=3 uid="uid://d3ee0yqlg3jme"]
 
 [ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://script/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
 [ext_resource type="Texture2D" uid="uid://stufiml3ni0m" path="res://assets/icon.svg" id="2_36wlx"]
 [ext_resource type="Texture2D" uid="uid://dvwo1x0mvk4t0" path="res://assets/1fb61a8e4f74a56382f9a09ec4233c94.jpg" id="3_dmi07"]
-[ext_resource type="PackedScene" uid="uid://dbvfu72c5mkvy" path="res://scene/snowball.tscn" id="5_ukt71"]
 [ext_resource type="Script" uid="uid://burunhuqqs5yv" path="res://script/mini_shop.gd" id="6_ismto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36wlx"]
@@ -17,7 +16,7 @@ size = Vector2(1557, 35)
 script = ExtResource("1_7g0b6")
 
 [node name="player" parent="." instance=ExtResource("1_s4405")]
-position = Vector2(891, 596)
+position = Vector2(497, 538)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -43,6 +42,12 @@ text = "тут будут статистика"
 
 [node name="collision" type="Node2D" parent="."]
 
+[node name="Icon3" type="Sprite2D" parent="collision"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(109.00001, 391.99997)
+scale = Vector2(1.65625, 8.515625)
+texture = ExtResource("2_36wlx")
+
 [node name="Icon2" type="Sprite2D" parent="collision"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1049, 306.99997)
@@ -51,7 +56,8 @@ texture = ExtResource("2_36wlx")
 
 [node name="Icon" type="Sprite2D" parent="collision"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(109.00001, 391.99997)
+position = Vector2(597.99994, 707)
+rotation = 1.5707964
 scale = Vector2(1.65625, 8.515625)
 texture = ExtResource("2_36wlx")
 
@@ -66,7 +72,7 @@ position = Vector2(1050, 317)
 shape = SubResource("RectangleShape2D_36wlx")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="collision/StaticBody2D"]
-position = Vector2(524.5, 664.5)
+position = Vector2(523, 619)
 shape = SubResource("RectangleShape2D_dmi07")
 
 [node name="backround" type="Node2D" parent="."]
@@ -79,9 +85,6 @@ texture = ExtResource("3_dmi07")
 
 [node name="test" type="Node2D" parent="."]
 position = Vector2(699, -949)
-
-[node name="snowball" parent="test" instance=ExtResource("5_ukt71")]
-position = Vector2(-84, 994)
 
 [node name="mini_shop" type="Node2D" parent="."]
 script = ExtResource("6_ismto")

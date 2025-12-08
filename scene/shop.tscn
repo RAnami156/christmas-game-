@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnqbetxldugi8"]
+[gd_scene load_steps=3 format=3 uid="uid://doywygmv4m3qs"]
 
 [ext_resource type="Script" uid="uid://b2lujx4knoao" path="res://scene/shop.gd" id="1_4p3p6"]
 [ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="1_iuafe"]
@@ -30,4 +30,36 @@ offset_right = 52.0
 offset_bottom = 38.0
 text = "100$"
 
+[node name="magnet" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 138.0
+offset_right = 273.0
+offset_bottom = 161.0
+text = "Magnet"
+
+[node name="magnet_button" type="Button" parent="magnet"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 60.0
+offset_bottom = 50.0
+text = "200$"
+
+[node name="slow_mod" type="Label" parent="."]
+offset_left = 738.0
+offset_top = 141.0
+offset_right = 813.0
+offset_bottom = 164.0
+text = "slow mod"
+
+[node name="slow_mod_button" type="Button" parent="slow_mod"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 61.0
+offset_bottom = 53.0
+text = "300$"
+
 [connection signal="pressed" from="dash/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="magnet/magnet_button" to="." method="_on_magnet_button_pressed"]
+[connection signal="pressed" from="slow_mod/slow_mod_button" to="." method="_on_slow_mod_button_pressed"]

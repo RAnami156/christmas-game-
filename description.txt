@@ -27,3 +27,25 @@ EN
 - Saving the player's position between scenes
 - Added shop button to main menu
 - Added quantity dashes and player can improve it(only logic)
+
+feat: magnet, slow_mod ; fix: health ;
+- Added new snowball animation
+- Added magnet(UI + logic, but need small anim fix)
+- Added slow mod(full logic)
+- Added shield(only animation, need logic)
+- Added collection animarion(new some fix)
+- Added inflation(UI + logic) 
+- fix some "yellow" problem
+- FIX SOME PROBLEMS WITH HEALTH
+
+- Усложнение по времени
+- Смерть
+- Пауза
+- Снежок с бомбой
+- Снежок с хилкой(щит)
+
+-Музыка
+
+STREAM
+сделай открытие с ленточками разно цветными если на пол падает,тоесть если не поймаешь
+идея: сделай чтобы подарков была куча но их надо переносить под елку иначе рюкзак полный,и дают меньше денег

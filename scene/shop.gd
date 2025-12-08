@@ -2,13 +2,29 @@ extends Node2D
 
 @onready var money_text = $interface/money
 
-func _physics_process(delta: float) -> void:
+var dash_price = 100
+var magnet_price = 200
+var slow_mod_price = 300
+
+func _physics_process(_delta: float) -> void:
 	pass
 	money_text.text = str(Global.money) + "$"
 
 
 func _on_button_pressed() -> void:
-	if Global.money >= 100:
-		Global.money -= 100
+	if Global.money >= dash_price:
+		Global.money -= dash_price
 		Global.dash_unlock = true
 		Global.dash_quantity += 3
+
+
+func _on_magnet_button_pressed() -> void:
+	if Global.money >= 200:
+		Global.money -= magnet_price
+		Global.magnet += Vector2(0.1, 0)
+
+
+func _on_slow_mod_button_pressed() -> void:
+	if Global.money >= slow_mod_price and Global.gravity > 20 :
+		Global.money -= slow_mod_price
+		Global.gravity -= 10

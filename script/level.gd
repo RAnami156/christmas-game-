@@ -17,6 +17,7 @@ var spawn_interval = 4.0
 var screen_width = 0
 
 func _ready():
+	spawn_snowball()
 	screen_width = get_viewport_rect().size.x
 	randomize()
 	$player.position = Global.player_position
@@ -26,13 +27,14 @@ func _physics_process(delta: float) -> void:
 	speed_text.text = "speed: " + str(Global.player_speed)
 	money_text.text = str(Global.money) + "$"
 	score_text.text = "score: " + str(Global.score)
-	hp_text.text = "hp: " + str(Global.player_health)
 	size_text.text = "size:" + str($player.scale)
 	if Global.dash_unlock:
 		dash_text.text = "dash quantity:" + str(Global.dash_quantity)
 	else:
 		dash_text.text = ""
-	
+		
+	#await get_tree().create_timer(0.5).timeout
+	hp_text.text = "hp: " + str(Global.player_health)
 	#Global.player_size = $player.scale
 	#Global.player_position = $player.position
 	

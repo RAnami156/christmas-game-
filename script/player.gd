@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+@onready var take_box = $Area2D/take_box
+
 func _physics_process(delta: float) -> void:
 	if Global.player_speed <= 0:
 		Global.player_speed = 0
 		
+	take_box.scale = Global.magnet
+	$killer.scale = Global.magnet
 	#MOVEMENT
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -29,8 +33,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	Global.score += 1
 	Global.money += 2 
-	Global.player_health += 20
-	print(Global.score)
+	Global.player_health += 40 #потому что у меня 2 слоя коллизий 1 и 3
+	#Global.p
+	#print(Global.score)
+	scale += Vector2(0.2, 0)
+	await get_tree().create_timer(0.2).timeout
+	scale -= Vector2(0.2, 0)
