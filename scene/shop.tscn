@@ -9,10 +9,10 @@ script = ExtResource("1_4p3p6")
 [node name="interface" parent="." instance=ExtResource("1_iuafe")]
 
 [node name="money" type="Label" parent="interface"]
-offset_left = 1096.0
-offset_top = 4.0
-offset_right = 1136.0
-offset_bottom = 27.0
+offset_left = 986.0
+offset_top = 3.0
+offset_right = 1026.0
+offset_bottom = 26.0
 text = "100$"
 
 [node name="dash" type="Label" parent="."]

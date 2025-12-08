@@ -1,3 +1,4 @@
+RU
 - Добавил деньги
 - Улучшил механику спавна снежка
 - Добавил механику улучшений 
@@ -12,3 +13,17 @@
 - Добавил возможность купить увеличение размера
 - Добавил возможность улучшить здоровье
 - Добавил магазин
+
+EN
+- Fixed health mechanics(only fix)
+- Added the ability to buy size increase(full logic)
+- Added the ability to upgrade health(full logic)
+- Added a store(UI only)
+- Added a dash(UI only)
+
+- Added dash mechanic
+- Added dash in the shop(UI + logic)
+- Shop(0.2 update)
+- Saving the player's position between scenes
+- Added shop button to main menu
+- Added quantity dashes and player can improve it(only logic)

@@ -17,7 +17,7 @@ size = Vector2(1557, 35)
 script = ExtResource("1_7g0b6")
 
 [node name="player" parent="." instance=ExtResource("1_s4405")]
-position = Vector2(612, 596)
+position = Vector2(891, 596)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -180,11 +180,18 @@ offset_bottom = 188.0
 text = "speed"
 
 [node name="size" type="Label" parent="stat"]
-offset_left = 959.0
-offset_top = 122.0
-offset_right = 999.0
-offset_bottom = 145.0
+offset_left = 965.0
+offset_top = 125.0
+offset_right = 1005.0
+offset_bottom = 148.0
 text = "size"
+
+[node name="dash" type="Label" parent="stat"]
+offset_left = 964.0
+offset_top = 104.0
+offset_right = 1004.0
+offset_bottom = 127.0
+text = "dash"
 
 [connection signal="pressed" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_pressed"]
 [connection signal="pressed" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_pressed"]

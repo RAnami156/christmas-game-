@@ -8,4 +8,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	Global.money -= 100
+	if Global.money >= 100:
+		Global.money -= 100
+		Global.dash_unlock = true
+		Global.dash_quantity += 3

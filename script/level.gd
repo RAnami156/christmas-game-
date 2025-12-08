@@ -5,6 +5,7 @@ extends Node2D
 @onready var score_text = $stat/score
 @onready var hp_text = $stat/hp
 @onready var size_text = $stat/size
+@onready var dash_text = $stat/dash
 #@onready var hp_text = 
 
 var time = 0
@@ -18,6 +19,7 @@ var screen_width = 0
 func _ready():
 	screen_width = get_viewport_rect().size.x
 	randomize()
+	$player.position = Global.player_position
 
 func _physics_process(delta: float) -> void:
 	#print(Global.player_size)
@@ -26,8 +28,13 @@ func _physics_process(delta: float) -> void:
 	score_text.text = "score: " + str(Global.score)
 	hp_text.text = "hp: " + str(Global.player_health)
 	size_text.text = "size:" + str($player.scale)
+	if Global.dash_unlock:
+		dash_text.text = "dash quantity:" + str(Global.dash_quantity)
+	else:
+		dash_text.text = ""
 	
 	#Global.player_size = $player.scale
+	#Global.player_position = $player.position
 	
 	
 	# Спавн снежков
