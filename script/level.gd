@@ -4,16 +4,15 @@ extends Node2D
 @onready var money_text = $mini_shop/money
 @onready var score_text = $stat/score
 @onready var hp_text = $stat/hp
+@onready var size_text = $stat/size
 #@onready var hp_text = 
 
 var time = 0
 
-# Preload снежка
 var snowball_scene = preload("res://scene/snowball.tscn")
 
-# Настройки спавна
 var spawn_timer = 0.0
-var spawn_interval = 4.0  # Секунды между спавнами
+var spawn_interval = 4.0  
 var screen_width = 0
 
 func _ready():
@@ -21,10 +20,15 @@ func _ready():
 	randomize()
 
 func _physics_process(delta: float) -> void:
+	#print(Global.player_size)
 	speed_text.text = "speed: " + str(Global.player_speed)
 	money_text.text = str(Global.money) + "$"
 	score_text.text = "score: " + str(Global.score)
 	hp_text.text = "hp: " + str(Global.player_health)
+	size_text.text = "size:" + str($player.scale)
+	
+	#Global.player_size = $player.scale
+	
 	
 	# Спавн снежков
 	spawn_timer += delta

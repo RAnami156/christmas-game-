@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
+	if Global.player_speed <= 0:
+		Global.player_speed = 0
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	var direction := Input.get_axis("A", "D")
@@ -15,4 +18,5 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	Global.score += 1
 	Global.money += 2 
+	Global.player_health += 20
 	print(Global.score)

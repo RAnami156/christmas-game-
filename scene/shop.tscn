@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnqbetxldugi8"]
+
+[ext_resource type="Script" uid="uid://b2lujx4knoao" path="res://scene/shop.gd" id="1_4p3p6"]
+[ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="1_iuafe"]
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_4p3p6")
+
+[node name="interface" parent="." instance=ExtResource("1_iuafe")]
+
+[node name="money" type="Label" parent="interface"]
+offset_left = 1096.0
+offset_top = 4.0
+offset_right = 1136.0
+offset_bottom = 27.0
+text = "100$"
+
+[node name="dash" type="Label" parent="."]
+offset_left = 509.0
+offset_top = 139.0
+offset_right = 553.0
+offset_bottom = 164.0
+text = "DASH"
+
+[node name="Button" type="Button" parent="dash"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 20.0
+offset_right = 52.0
+offset_bottom = 38.0
+text = "100$"
+
+[connection signal="pressed" from="dash/Button" to="." method="_on_button_pressed"]

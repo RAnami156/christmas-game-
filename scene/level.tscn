@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://stufiml3ni0m" path="res://assets/icon.svg" id="2_36wlx"]
 [ext_resource type="Texture2D" uid="uid://dvwo1x0mvk4t0" path="res://assets/1fb61a8e4f74a56382f9a09ec4233c94.jpg" id="3_dmi07"]
 [ext_resource type="PackedScene" uid="uid://dbvfu72c5mkvy" path="res://scene/snowball.tscn" id="5_ukt71"]
-[ext_resource type="Script" uid="uid://burunhuqqs5yv" path="res://scene/mini_shop.gd" id="6_ismto"]
+[ext_resource type="Script" uid="uid://burunhuqqs5yv" path="res://script/mini_shop.gd" id="6_ismto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36wlx"]
 size = Vector2(222, 662)
@@ -73,7 +73,7 @@ shape = SubResource("RectangleShape2D_dmi07")
 
 [node name="1Fb61a8e4f74a56382f9a09Ec4233c94" type="Sprite2D" parent="backround"]
 z_index = -1
-position = Vector2(563, 326.125)
+position = Vector2(575, 329.99997)
 scale = Vector2(2.0873952, 1.9826283)
 texture = ExtResource("3_dmi07")
 
@@ -179,4 +179,13 @@ offset_right = 1054.0
 offset_bottom = 188.0
 text = "speed"
 
+[node name="size" type="Label" parent="stat"]
+offset_left = 959.0
+offset_top = 122.0
+offset_right = 999.0
+offset_bottom = 145.0
+text = "size"
+
 [connection signal="pressed" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_pressed"]
+[connection signal="pressed" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_pressed"]
+[connection signal="pressed" from="mini_shop/improvements/size/size_button" to="mini_shop" method="_on_size_button_pressed"]
