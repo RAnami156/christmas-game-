@@ -42,6 +42,9 @@ feat: magnet, slow_mod ; fix: health ;
 - Added bomb snowball
 - Снежок с хилкой(щит)
 
+feat: new snowball animation
+- Added bomb snowball(new animation)
+
 
 - Усложнение по времени
 - Смерть

@@ -213,7 +213,6 @@ text = "dash"
 stream = ExtResource("6_bddx0")
 volume_db = -16.005
 pitch_scale = 0.85
-autoplay = true
 
 [node name="Area2D2" type="Area2D" parent="."]
 collision_mask = 2
