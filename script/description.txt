@@ -39,11 +39,13 @@ feat: magnet, slow_mod ; fix: health ;
 - FIX SOME PROBLEMS WITH HEALTH
 
 
+- Added bomb snowball
+- Снежок с хилкой(щит)
+
+
 - Усложнение по времени
 - Смерть
 - Пауза
-- Снежок с бомбой
-- Снежок с хилкой(щит)
 
 -Музыка
 

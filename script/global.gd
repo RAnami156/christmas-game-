@@ -9,6 +9,7 @@ var magnet = Vector2(1, 1)
 
 #SNOWBALL
 var gravity = 100
+var shield = false
 
 #LEVEL
 var score = 0 
