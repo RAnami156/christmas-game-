@@ -17,7 +17,7 @@ size = Vector2(222, 662)
 size = Vector2(1557, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ismto"]
-size = Vector2(691, 54.75)
+size = Vector2(731, 65.375)
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_7g0b6")
@@ -94,10 +94,10 @@ texture = ExtResource("3_dmi07")
 position = Vector2(699, -949)
 
 [node name="bomb_snowball" parent="test" instance=ExtResource("5_bddx0")]
-position = Vector2(-300, 972)
+position = Vector2(-96, 399)
 
 [node name="shield_snowball" parent="test" instance=ExtResource("6_aw33w")]
-position = Vector2(-98, 978)
+position = Vector2(174, 972)
 
 [node name="mini_shop" type="Node2D" parent="."]
 script = ExtResource("6_ismto")
@@ -214,15 +214,15 @@ stream = ExtResource("6_bddx0")
 volume_db = -16.005
 pitch_scale = 0.85
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="killer" type="Area2D" parent="."]
 collision_mask = 2
 script = ExtResource("8_u2b8d")
 
-[node name="take_box" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(573.5, 366.625)
+[node name="take_box" type="CollisionShape2D" parent="killer"]
+position = Vector2(575.5, 621.6875)
 shape = SubResource("RectangleShape2D_ismto")
 
 [connection signal="pressed" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_pressed"]
 [connection signal="pressed" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_pressed"]
 [connection signal="pressed" from="mini_shop/improvements/size/size_button" to="mini_shop" method="_on_size_button_pressed"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="killer" to="killer" method="_on_body_entered"]

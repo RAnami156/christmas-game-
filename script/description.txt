@@ -45,10 +45,20 @@ feat: magnet, slow_mod ; fix: health ;
 feat: new snowball animation
 - Added bomb snowball(new animation)
 
+feat: new damage; fix: snowballs
+- Fixed shied_snowball
+- Fixed default_snowball
+- Deleted scaling
+- Added new damage system
+- Added shield(anim +logic)
 
+FUTURE
 - Усложнение по времени
 - Смерть
 - Пауза
+- Added take animation
+- Added round
+
 
 -Музыка
 

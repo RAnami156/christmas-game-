@@ -1,8 +1,6 @@
 extends Area2D
 
-
-
-
 func _on_body_entered(_body: Node2D) -> void:
-	#pass
-	print("sjlkdjal")
+	if _body.name == "default_snowball":
+		Global.player_health -= 20
+		print("loose snowball")

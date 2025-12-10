@@ -10,7 +10,7 @@ extends Node2D
 
 var time = 0
 
-var snowball_scene = preload("res://scene/snowball.tscn")
+var snowball_scene = preload("res://scene/default_snowball.tscn")
 
 var spawn_timer = 0.0
 var spawn_interval = 4.0  

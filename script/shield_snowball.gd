@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-#var velocity = Vector2.ZERO
 var rotation_speed = 5
 
 func _ready() -> void:
@@ -13,8 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	Global.player_health -= 20
-	Global.shield = true
-	print(Global.shield)
 	self.queue_free()
-	pass

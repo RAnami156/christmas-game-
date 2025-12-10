@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
 @onready var take_box = $Area2D/take_box
+@onready var shield_anim = $shield
 
 func _physics_process(delta: float) -> void:
+	if Global.shield:
+		shield_anim.visible = true
+	else:
+		shield_anim.visible = false
+		
 	if Global.player_speed <= 0:
 		Global.player_speed = 0
 		
@@ -36,9 +42,24 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	Global.score += 1
 	Global.money += 2 
-	Global.player_health += 40 #потому что у меня 2 слоя коллизий 1 и 3
-	#Global.p
-	#print(Global.score)
-	scale += Vector2(0.2, 0)
-	await get_tree().create_timer(0.2).timeout
-	scale -= Vector2(0.2, 0)
+	
+	#if  _body.name == "default_snowball":
+		#print("take default")
+
+	if _body.name == "bomb_snowball" and Global.shield == false:
+		Global.player_health -= 30
+		print("take bomb")
+	if _body.name == "bomb_snowball" and Global.shield:
+		print("shield works!!!")
+		
+	if _body.name == "shield_snowball":
+		print("take shield")
+		
+		Global.shield = true
+		print(Global.shield)
+		
+		await get_tree().create_timer(5).timeout
+		
+		Global.shield = false
+		print(Global.shield)
+	
