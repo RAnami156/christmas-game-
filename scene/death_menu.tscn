@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://di4mkd7ennj76"]
+
+[ext_resource type="Script" uid="uid://cuxmemg72ymfd" path="res://death_menu.gd" id="1_fvpot"]
+
+[node name="death_menu" type="Node2D"]
+script = ExtResource("1_fvpot")
+
+[node name="text" type="Label" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 251.0
+offset_top = 39.0
+offset_right = 905.0
+offset_bottom = 312.0
+theme_override_font_sizes/font_size = 200
+text = "DEATH"
+
+[node name="record" type="Label" parent="."]
+offset_left = 274.0
+offset_top = 339.0
+offset_right = 384.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 32
+text = "record:"
+
+[node name="current_score" type="Label" parent="."]
+offset_left = 273.0
+offset_top = 293.0
+offset_right = 488.0
+offset_bottom = 338.0
+theme_override_font_sizes/font_size = 32
+text = "current score:"

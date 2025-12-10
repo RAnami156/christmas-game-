@@ -13,7 +13,8 @@ var shield = false
 
 #LEVEL
 var score = 0 
-var money = 10000
+var money = 0
+var record_score = 0 
 
 #SHOP
 var dash_unlock = false

@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://d1iee6ks8geom" path="res://addons/gift.png" id="2_mutoe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gtgx6"]
-radius = 11.0
+radius = 3.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sjjxb"]
-radius = 17.720045
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mutoe"]
+size = Vector2(27, 28)
 
 [node name="default_snowball" type="CharacterBody2D"]
 collision_layer = 2
@@ -29,6 +29,7 @@ collision_layer = 0
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_sjjxb")
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_mutoe")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

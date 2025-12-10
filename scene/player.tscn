@@ -127,7 +127,7 @@ animations = [{
 size = Vector2(99, 64.681816)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
-size = Vector2(51.806427, 26.371437)
+size = Vector2(51.806427, 34.589386)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42h83"]
 atlas = ExtResource("6_oh5ij")
@@ -291,8 +291,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="take_box" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.4365496, -24.97241)
-rotation = 0.010049942
+position = Vector2(-0.39525536, -29.081177)
+rotation = 0.010049941
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_s4jxa")
 

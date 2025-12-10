@@ -59,6 +59,12 @@ feat: shied_snowball animation
 - Added take animation
 - Added slow dash 
 
+feat: complexity
+- Added complexity
+- Added death
+- Added death menu
+- Added record
+
 FUTURE
 - Усложнение по времени
 - Смерть
