@@ -52,11 +52,17 @@ feat: new damage; fix: snowballs
 - Added new damage system
 - Added shield(anim +logic)
 
+feat: shied_snowball animation
+- Added shied_snowball(animation)
+- Added particles 
+- Fixed problem with fps and a lot problem with collisions
+- Added take animation
+- Added slow dash 
+
 FUTURE
 - Усложнение по времени
 - Смерть
 - Пауза
-- Added take animation
 - Added round
 
 

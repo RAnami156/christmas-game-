@@ -23,7 +23,7 @@ size = Vector2(731, 65.375)
 script = ExtResource("1_7g0b6")
 
 [node name="player" parent="." instance=ExtResource("1_s4405")]
-position = Vector2(497, 538)
+position = Vector2(690, 492)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -63,9 +63,9 @@ texture = ExtResource("2_36wlx")
 
 [node name="Icon" type="Sprite2D" parent="collision"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(597.99994, 707)
+position = Vector2(597.99994, 710.72626)
 rotation = 1.5707964
-scale = Vector2(1.65625, 8.515625)
+scale = Vector2(1.5980271, 8.515625)
 texture = ExtResource("2_36wlx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="collision"]

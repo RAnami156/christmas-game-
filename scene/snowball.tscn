@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://xscm4040s0d4" path="res://assets/snowball.png" id="1_p2g5r"]
 [ext_resource type="Script" uid="uid://cpyborbjsq6p3" path="res://script/snowball.gd" id="1_qc5fd"]
-[ext_resource type="Texture2D" uid="uid://d1iee6ks8geom" path="res://gift.png" id="3_o4n7t"]
+[ext_resource type="Texture2D" uid="uid://d1iee6ks8geom" path="res://addons/gift.png" id="3_o4n7t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o4n7t"]
 radius = 14.0

@@ -1,7 +1,107 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckxvm6w8mtwc"]
+[gd_scene load_steps=20 format=3 uid="uid://ckxvm6w8mtwc"]
 
 [ext_resource type="Script" uid="uid://bt20qhnwffjgd" path="res://script/shield_snowball.gd" id="1_i0aj6"]
 [ext_resource type="Texture2D" uid="uid://xscm4040s0d4" path="res://assets/snowball.png" id="2_8c5ca"]
+[ext_resource type="Texture2D" uid="uid://bxvlepd88vs1b" path="res://addons/shield_gift-Sheet.png" id="2_i66lw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76hq1"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xx6l"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5ci4"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw7g0"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ns85"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jy8e"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ix8c"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lvl6"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1fo"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auwvo"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mhtu"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wax8"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6fy3"]
+atlas = ExtResource("2_i66lw")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bh0fa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76hq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xx6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5ci4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw7g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ns85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jy8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ix8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lvl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an1fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auwvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mhtu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wax8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6fy3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 9.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hau7u"]
 radius = 14.0
@@ -13,7 +113,14 @@ radius = 17.720045
 collision_layer = 2
 script = ExtResource("1_i0aj6")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bh0fa")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.14130384
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 0, 1, 1)
 texture = ExtResource("2_8c5ca")
 

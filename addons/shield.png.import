@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x6otxb12v1rv"
-path="res://.godot/imported/bomb_gift.png-17e719cfb4369c3adb9a3a2f663d6282.ctex"
+uid="uid://bq0p16rtg8f75"
+path="res://.godot/imported/shield.png-2269c1acfc5553d558fb29d1cd390fb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bomb_gift.png"
-dest_files=["res://.godot/imported/bomb_gift.png-17e719cfb4369c3adb9a3a2f663d6282.ctex"]
+source_file="res://addons/shield.png"
+dest_files=["res://.godot/imported/shield.png-2269c1acfc5553d558fb29d1cd390fb5.ctex"]
 
 [params]
 

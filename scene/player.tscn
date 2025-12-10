@@ -1,11 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://bf6ouahb5e8ea"]
+[gd_scene load_steps=35 format=3 uid="uid://bf6ouahb5e8ea"]
 
 [ext_resource type="Texture2D" uid="uid://c7dq8o2ldmd0l" path="res://assets/1.png" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://dmh6tj8l7ueqt" path="res://script/player.gd" id="1_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://cjx3qm0lgipfh" path="res://assets/idle.png" id="2_ct4mp"]
 [ext_resource type="Texture2D" uid="uid://bvwn3v5dppnq3" path="res://assets/NY_idle.png" id="3_ct4mp"]
 [ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="3_s4jxa"]
-[ext_resource type="Texture2D" uid="uid://bq0p16rtg8f75" path="res://shield.png" id="6_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://bq0p16rtg8f75" path="res://addons/shield.png" id="6_oh5ij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh5ij"]
 atlas = ExtResource("1_fvtld")
@@ -124,126 +124,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvtld"]
-size = Vector2(99, 76)
+size = Vector2(99, 64.681816)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
-size = Vector2(99.09091, 11.5)
-
-[sub_resource type="Animation" id="Animation_oh5ij"]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Hit"]
-}
-
-[sub_resource type="Animation" id="Animation_hp4bs"]
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Idle"]
-}
-
-[sub_resource type="Animation" id="Animation_g2vtq"]
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["NY_Idle"]
-}
-
-[sub_resource type="Animation" id="Animation_s4jxa"]
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["NY_collected"]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fvbb"]
-_data = {
-&"Hit": SubResource("Animation_oh5ij"),
-&"Idle": SubResource("Animation_hp4bs"),
-&"NY_Idle": SubResource("Animation_g2vtq"),
-&"NY_collected": SubResource("Animation_s4jxa")
-}
+size = Vector2(51.806427, 26.371437)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42h83"]
 atlas = ExtResource("6_oh5ij")
@@ -302,6 +186,90 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_oh5ij"]
+resource_name = "+1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plus:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-10, -54.731), Vector2(-10, -177.273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plus:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plus:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_hp4bs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plus:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plus:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plus:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0009999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2vtq"]
+_data = {
+&"+1": SubResource("Animation_oh5ij"),
+&"RESET": SubResource("Animation_hp4bs")
+}
+
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_s4jxa")
@@ -315,7 +283,7 @@ autoplay = "NY_Idle"
 [node name="interface" parent="AnimatedSprite2D" instance=ExtResource("3_s4jxa")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, 14)
+position = Vector2(-0.909091, 17.272726)
 shape = SubResource("RectangleShape2D_fvtld")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -323,21 +291,20 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="take_box" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3.6363635, -26.363636)
+position = Vector2(-0.4365496, -24.97241)
+rotation = 0.010049942
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_s4jxa")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_2fvbb")
-}
 
 [node name="killer" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="killer"]
-position = Vector2(-3.5, 14)
-shape = SubResource("RectangleShape2D_fvtld")
+[node name="take_box" type="CollisionShape2D" parent="killer"]
+position = Vector2(-1.3456404, 7.7548647)
+rotation = 0.010049942
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_s4jxa")
 
 [node name="shield" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -349,5 +316,20 @@ animation = &"shield"
 autoplay = "shield"
 frame = 1
 frame_progress = 0.07643644
+
+[node name="effects" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g2vtq")
+}
+autoplay = "+1"
+
+[node name="plus" type="Label" parent="."]
+offset_left = -10.0
+offset_top = -54.731
+offset_right = 104.0
+offset_bottom = 82.269
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/font_size = 100
+text = "+1"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
