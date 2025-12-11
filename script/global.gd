@@ -12,7 +12,7 @@ var gravity = 100
 var shield = false
 
 #LEVEL
-var score = 0 
+var score = 0
 var money = 0
 var record_score = 0 
 

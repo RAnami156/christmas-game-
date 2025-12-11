@@ -1,10 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bf6ouahb5e8ea"]
+[gd_scene load_steps=34 format=3 uid="uid://bf6ouahb5e8ea"]
 
 [ext_resource type="Texture2D" uid="uid://c7dq8o2ldmd0l" path="res://assets/1.png" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://dmh6tj8l7ueqt" path="res://script/player.gd" id="1_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://cjx3qm0lgipfh" path="res://assets/idle.png" id="2_ct4mp"]
 [ext_resource type="Texture2D" uid="uid://bvwn3v5dppnq3" path="res://assets/NY_idle.png" id="3_ct4mp"]
-[ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="3_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://bq0p16rtg8f75" path="res://addons/shield.png" id="6_oh5ij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh5ij"]
@@ -124,10 +123,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvtld"]
-size = Vector2(99, 64.681816)
+size = Vector2(40.909092, 62.3409)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
-size = Vector2(51.806427, 26.34403)
+size = Vector2(63.596603, 26.34403)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42h83"]
 atlas = ExtResource("6_oh5ij")
@@ -272,6 +271,7 @@ _data = {
 
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(1.1, 1.1)
+collision_layer = 4
 collision_mask = 9
 script = ExtResource("1_s4jxa")
 
@@ -281,10 +281,8 @@ sprite_frames = SubResource("SpriteFrames_j4wxg")
 animation = &"NY_Idle"
 autoplay = "NY_Idle"
 
-[node name="interface" parent="AnimatedSprite2D" instance=ExtResource("3_s4jxa")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.909091, 17.272726)
+position = Vector2(-2.2727284, 19.090908)
 shape = SubResource("RectangleShape2D_fvtld")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -292,8 +290,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="take_box" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.43668732, -24.958706)
-rotation = 0.01004994
+position = Vector2(-3.617725, -26.399994)
+rotation = 0.010049938
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_s4jxa")
 
@@ -302,7 +300,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="take_box" type="CollisionShape2D" parent="killer"]
-position = Vector2(-1.3456404, 7.7548647)
+position = Vector2(-0.9090909, 36.363632)
 rotation = 0.010049942
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_s4jxa")
@@ -325,10 +323,10 @@ libraries = {
 autoplay = "+1"
 
 [node name="plus" type="Label" parent="."]
-offset_left = -10.0
-offset_top = -54.731
-offset_right = 104.0
-offset_bottom = 82.269
+offset_left = -10.909091
+offset_top = -65.45455
+offset_right = 103.09091
+offset_bottom = 71.54545
 scale = Vector2(0.3, 0.3)
 theme_override_font_sizes/font_size = 100
 text = "+1"

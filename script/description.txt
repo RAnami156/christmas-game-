@@ -1,3 +1,5 @@
+--- V ALFA ---
+
 RU
 - Добавил деньги
 - Улучшил механику спавна снежка
@@ -38,10 +40,6 @@ feat: magnet, slow_mod ; fix: health ;
 - fix some "yellow" problem
 - FIX SOME PROBLEMS WITH HEALTH
 
-
-- Added bomb snowball
-- Снежок с хилкой(щит)
-
 feat: new snowball animation
 - Added bomb snowball(new animation)
 
@@ -59,21 +57,45 @@ feat: shied_snowball animation
 - Added take animation
 - Added slow dash 
 
-feat: complexity
+
+feat: shied_snowball animation
 - Added complexity
 - Added death
 - Added death menu
 - Added record
 
+
+
+V0.1.0 feat: complexity
+--- FIRST FULL WORKED VERSION ---
+
+- Added normal levels(only logic)
+- Added increase in 
+- Fixed all collision
+- Fixed sideways selection bug
+
 FUTURE
-- Усложнение по времени
-- Смерть
+-Улучшение баланса
+
 - Пауза
 - Added round
-
+- Added load
+- Added UI levels
+- Added loss animation (hard)
 
 -Музыка
 
 STREAM
 сделай открытие с ленточками разно цветными если на пол падает,тоесть если не поймаешь
 идея: сделай чтобы подарков была куча но их надо переносить под елку иначе рюкзак полный,и дают меньше денег
+
+RELEASE
+- Когда ты с щитом забираешь динамит тебе бонусом дает 5 денег
+- Щит работает 20 секунд
+- Динамит снимает 30 хп
+- Падающий подарок -20 хп 
+
+V0.1.0 
+В этой версии добавлялись только логические функции и внимание было направленно в основном на механики игры и их 
+улучшение. В обратную сторону от механик разрабатывался UI, вы увидите минимально-плохо нарисованый набор 
+использованных асетов в данной версии игры.

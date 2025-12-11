@@ -22,12 +22,11 @@ func _ready():
 	spawn_snowball()
 
 func _physics_process(delta: float) -> void:
-	# Проверка смерти
+	$player/interface/Label2.text = str(spawn_interval)
 	if Global.player_health <= 0:
 		get_tree().change_scene_to_file("res://scene/death_menu.tscn")
 		return
 	
-	# Обновление UI
 	speed_text.text = "speed: " + str(Global.player_speed)
 	money_text.text = str(Global.money) + "$"
 	score_text.text = "score: " + str(Global.score)
@@ -39,10 +38,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		dash_text.text = ""
 	
-	# Динамическая сложность
 	update_difficulty()
 	
-	# Спавн снежков
 	spawn_timer += delta
 	if spawn_timer >= spawn_interval:
 		spawn_snowball()
@@ -55,47 +52,58 @@ func updateTimer(delta):
 	time += delta
 
 func update_difficulty():
-	# Сложность через гравитацию, spawn_interval >= 2.5 сек
-	if Global.score < 10:
-		Global.gravity = 250
-		spawn_interval = 4
-	elif Global.score < 25:
-		Global.gravity = 350
+
+	if Global.score > 5 and Global.score < 15:
+		Global.gravity = 200
 		spawn_interval = 3.5
-	elif Global.score < 50:
-		Global.gravity = 500
+		
+	elif Global.score > 15 and Global.score < 30:
+		Global.gravity = 280
 		spawn_interval = 3.0
-	elif Global.score < 100:
+		
+	elif Global.score > 30 and Global.score < 50:
+		Global.gravity = 350
+		spawn_interval = 2.8
+		
+	elif Global.score > 50 and Global.score < 75:
+		Global.gravity = 400
+		spawn_interval = 2.6
+		
+	elif Global.score > 75 and Global.score < 100:
 		Global.gravity = 700
 		spawn_interval = 2.5
-	else:
-		Global.gravity = 1000
+		
+	elif Global.score > 100:
+		Global.gravity = 750
 		spawn_interval = 2.5
 
 func spawn_snowball():
 	var snowball
 	var random_chance = randf()
 	
-	var bomb_chance = 0.15 + (Global.score * 0.001)
-	var shield_chance = 0.10
+	# Шансы растут со счетом
+	var bomb_chance = 0.05 + (Global.score * 0.003)  # Начинается с 5%
+	var shield_chance = 0.03 + (Global.score * 0.001)  # Начинается с 3%
 	
-	bomb_chance = min(bomb_chance, 0.35)
+	# Ограничения
+	bomb_chance = clamp(bomb_chance, 0.05, 0.25)  # Максимум 25%
+	shield_chance = clamp(shield_chance, 0.03, 0.12)  # Максимум 12%
 	
+	# Выбор типа снежка
 	if random_chance < shield_chance:
 		snowball = shield_snowball_scene.instantiate()
-		snowball.name = "shield_snowball" + str(snowball.get_instance_id())  
+		snowball.name = "shield_snowball" + str(snowball.get_instance_id())
 	elif random_chance < shield_chance + bomb_chance:
 		snowball = bomb_snowball_scene.instantiate()
-		snowball.name = "bomb_snowball" + str(snowball.get_instance_id())  
+		snowball.name = "bomb_snowball" + str(snowball.get_instance_id())
 	else:
 		snowball = default_snowball_scene.instantiate()
-		snowball.name = "default_snowball_" + str(snowball.get_instance_id())  
+		snowball.name = "default_snowball_" + str(snowball.get_instance_id()) 
 	
-	# Случайная позиция X сверху экрана
+
 	var random_x = randf_range(250, 920)
 	snowball.position = Vector2(random_x, -50)
 	
 	add_child(snowball)
 
 	
-	# Шансы зависят от счета

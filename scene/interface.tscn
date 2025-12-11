@@ -12,4 +12,11 @@ offset_right = 695.0
 offset_bottom = 60.0
 text = "exit"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 341.0
+offset_top = 24.0
+offset_right = 381.0
+offset_bottom = 47.0
+text = "asda"
+
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

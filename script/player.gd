@@ -5,14 +5,15 @@ extends CharacterBody2D
 @onready var anim_effects = $effects
 
 var is_dashing = false
+var money_plus = 1
 
 func _ready() -> void:
-	#pass
 	$plus.visible = false
 	
 
 func _physics_process(delta: float) -> void:
-	#anim_effects.visible == false
+	#print(money_plus) #FOR TESTS
+	update_difficulty()
 	if Global.shield:
 		shield_anim.visible = true
 	else:
@@ -43,14 +44,14 @@ func _physics_process(delta: float) -> void:
 	
 	Global.player_position = position
 	move_and_slide()
+	
 
 func dash_to(target_pos: Vector2):
 	is_dashing = true
 	
-	# Создаём плавную анимацию перемещения
 	var tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT)  # Замедление в конце
-	tween.set_trans(Tween.TRANS_CUBIC)  # Плавная кривая	
+	tween.set_ease(Tween.EASE_OUT)  
+	tween.set_trans(Tween.TRANS_CUBIC)  
 	tween.tween_property(self, "position", target_pos, 0.2)  # 0.2 секунды
 	
 	await tween.finished
@@ -61,26 +62,45 @@ func dash_to(target_pos: Vector2):
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	#print("play")
 	anim_effects.play("+1")
-	if _body.name == "bomb_snowball" and Global.shield == false:
-		Global.player_health -= 30
-		print("take bomb")
-	if _body.name == "bomb_snowball" and Global.shield:
+	if "bomb_snowball" in _body.name and Global.shield == false:
+			Global.player_health -= 30
+			print("take bomb")
+	if "bomb_snowball" in _body.name and Global.shield:
+		Global.money += 5
 		Global.shield = false
 		print("shield works!!!")
 		
-	if _body.name == "shield_snowball":
+	if "shield_snowball" in _body.name:
 		print("take shield")
 		
 		Global.shield = true
 		print(Global.shield)
 		
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(20).timeout
 		
 		Global.shield = false
 		print(Global.shield)
 	
+	#money_increase
 	Global.score += 1
 	$plus.visible = true
-	#await get_tree().create_timer(1).timeout 
-	#$plus.visible = false
-	Global.money += 2 
+	Global.money += money_plus
+	
+func update_difficulty():
+	if Global.score > 5 and Global.score < 15:
+		money_plus = 1.2
+		
+	elif Global.score > 15 and Global.score < 30:
+		money_plus = 1.5
+		
+	elif Global.score > 30 and Global.score < 50:
+		money_plus = 2
+		
+	elif Global.score > 50 and Global.score < 75:
+		money_plus = 2.5
+		
+	elif Global.score > 75 and Global.score < 100:
+		money_plus = 2.7
+		
+	elif Global.score > 100:
+		money_plus = 3
