@@ -70,18 +70,17 @@ func update_difficulty():
 		spawn_interval = 2.6
 		
 	elif Global.score > 75 and Global.score < 100:
-		Global.gravity = 700
+		Global.gravity = 500
 		spawn_interval = 2.5
 		
 	elif Global.score > 100:
-		Global.gravity = 750
+		Global.gravity = 550
 		spawn_interval = 2.5
 
 func spawn_snowball():
 	var snowball
 	var random_chance = randf()
 	
-	# Шансы растут со счетом
 	var bomb_chance = 0.05 + (Global.score * 0.003)  # Начинается с 5%
 	var shield_chance = 0.03 + (Global.score * 0.001)  # Начинается с 3%
 	

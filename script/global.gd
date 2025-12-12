@@ -13,7 +13,7 @@ var shield = false
 
 #LEVEL
 var score = 0
-var money = 0
+var money = 00000
 var record_score = 0 
 
 #SHOP

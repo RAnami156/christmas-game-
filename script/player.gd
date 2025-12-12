@@ -97,10 +97,10 @@ func update_difficulty():
 		money_plus = 2
 		
 	elif Global.score > 50 and Global.score < 75:
-		money_plus = 2.5
+		money_plus = 3
 		
 	elif Global.score > 75 and Global.score < 100:
-		money_plus = 2.7
+		money_plus = 3.5
 		
 	elif Global.score > 100:
-		money_plus = 3
+		money_plus = 5

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di4mkd7ennj76"]
 
-[ext_resource type="Script" uid="uid://cuxmemg72ymfd" path="res://death_menu.gd" id="1_fvpot"]
+[ext_resource type="Script" uid="uid://cuxmemg72ymfd" path="res://script/death_menu.gd" id="1_fvpot"]
 
 [node name="death_menu" type="Node2D"]
 script = ExtResource("1_fvpot")
