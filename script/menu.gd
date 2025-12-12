@@ -2,10 +2,10 @@ extends Node2D
 @onready var money_text = $money
 
 func _ready() -> void:
-	money_text.text = str(Global.money) + "$"
+	money_text.text = str(Global.global_money) + "$"
 
 func _on_play_pressed() -> void:
-	money_text.text = str(Global.money) + "$"
+	money_text.text = str(Global.global_money) + "$"
 	get_tree().change_scene_to_file("res://scene/level.tscn")
 
 

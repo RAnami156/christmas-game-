@@ -5,14 +5,14 @@ extends CharacterBody2D
 @onready var anim_effects = $effects
 
 var is_dashing = false
-var money_plus = 1
 
 func _ready() -> void:
 	$plus.visible = false
 	
 
 func _physics_process(delta: float) -> void:
-	#print(money_plus) #FOR TESTS
+	#print(Global.money_plus) #FOR TESTS
+	$plus.text = str(Global.money_plus) + "$"
 	update_difficulty()
 	if Global.shield:
 		shield_anim.visible = true
@@ -66,7 +66,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 			Global.player_health -= 30
 			print("take bomb")
 	if "bomb_snowball" in _body.name and Global.shield:
-		Global.money += 5
+		Global.current_money += 5
 		Global.shield = false
 		print("shield works!!!")
 		
@@ -84,23 +84,23 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	#money_increase
 	Global.score += 1
 	$plus.visible = true
-	Global.money += money_plus
+	Global.current_money += Global.money_plus
 	
 func update_difficulty():
 	if Global.score > 5 and Global.score < 15:
-		money_plus = 1.2
+		Global.money_plus = 1.2
 		
 	elif Global.score > 15 and Global.score < 30:
-		money_plus = 1.5
+		Global.money_plus = 1.5
 		
 	elif Global.score > 30 and Global.score < 50:
-		money_plus = 2
+		Global.money_plus = 2
 		
 	elif Global.score > 50 and Global.score < 75:
-		money_plus = 3
+		Global.money_plus = 3
 		
 	elif Global.score > 75 and Global.score < 100:
-		money_plus = 3.5
+		Global.money_plus = 3.5
 		
 	elif Global.score > 100:
-		money_plus = 5
+		Global.money_plus = 5

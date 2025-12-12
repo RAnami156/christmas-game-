@@ -12,8 +12,10 @@ var gravity = 100
 var shield = false
 
 #LEVEL
+var money_plus = 1
 var score = 0
-var money = 00000
+var current_money = 0
+var global_money = 0 
 var record_score = 0 
 
 #SHOP

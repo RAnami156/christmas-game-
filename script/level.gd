@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	speed_text.text = "speed: " + str(Global.player_speed)
-	money_text.text = str(Global.money) + "$"
+	money_text.text = str(Global.current_money) + "$"
 	score_text.text = "score: " + str(Global.score)
 	size_text.text = "size:" + str($player.scale)
 	hp_text.text = "hp: " + str(Global.player_health)

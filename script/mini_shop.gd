@@ -19,22 +19,22 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_speed_button_pressed() -> void:
-	if Global.money >= speed_price:
-		Global.money -= speed_price
+	if Global.current_money >= speed_price:
+		Global.current_money -= speed_price
 		Global.player_speed += 20
 		speed_price += speed_price * 0.4
 
 
 func _on_hp_button_pressed() -> void:
-	if Global.money >= hp_price:
+	if Global.current_money >= hp_price:
 		Global.player_health += 5
-		Global.money -= hp_price
+		Global.current_money -= hp_price
 		hp_price += hp_price * 0.2
 
 
 func _on_size_button_pressed() -> void:
-	if Global.money >= size_price:
+	if Global.current_money >= size_price:
 		player.scale += Vector2(0.10, 0.10)
 		Global.player_speed -= 20
-		Global.money -= size_price
+		Global.current_money -= size_price
 		size_price += size_price * 0.4
