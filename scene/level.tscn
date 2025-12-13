@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=20 format=3 uid="uid://d3ee0yqlg3jme"]
 
 [ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://script/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="3_u2b8d"]
 [ext_resource type="Texture2D" uid="uid://mko4oio6dppf" path="res://assets/GG.png" id="4_ktmlt"]
 [ext_resource type="AudioStream" uid="uid://hu5oqevxy4ep" path="res://wham-last-christmas-single-version.mp3" id="6_bddx0"]
+[ext_resource type="Texture2D" uid="uid://56xxvmjfaylx" path="res://assets/level-backround.png" id="6_gunnj"]
 [ext_resource type="Script" uid="uid://burunhuqqs5yv" path="res://script/mini_shop.gd" id="6_ismto"]
 [ext_resource type="Script" uid="uid://c22plb63dk3qx" path="res://script/area_2d.gd" id="8_u2b8d"]
 [ext_resource type="Texture2D" uid="uid://b5d1g0mymj50k" path="res://assets/tile-set1.png" id="9_aw33w"]
@@ -145,9 +146,15 @@ position = Vector2(523, 626)
 shape = SubResource("RectangleShape2D_dmi07")
 
 [node name="backround" type="Node2D" parent="."]
-visible = false
+z_index = -5
+
+[node name="LevelBackround" type="Sprite2D" parent="backround"]
+position = Vector2(420.99997, 313.99997)
+scale = Vector2(3.7932098, 3.7932098)
+texture = ExtResource("6_gunnj")
 
 [node name="1Fb61a8e4f74a56382f9a09Ec4233c94" type="Sprite2D" parent="backround"]
+visible = false
 z_index = -1
 position = Vector2(575, 329.99997)
 scale = Vector2(2.0873952, 1.9826283)

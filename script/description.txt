@@ -81,6 +81,18 @@ feat: difficults(v0.1.1)
 	money drop: 1; 1.2; 1.5; 2; 2.5; 2.7; 3 ==> 1; 1.5; 2; 3; 3.5; 5
 	snowball gravity: 700; 750 ==> 500; 550
 
+feat: money system(v0.1.2)
+- Added:
+	global money(logic)
+	current money
+- Change new plus amination
+
+feat: new assets(v0.1.3)
+- Added:
+	new main menu(UI)
+	new tileset
+	new mini shop(UI)
+
 FUTURE
 -Улучшение баланса
 
