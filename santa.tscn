@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://2fuolv7t5kju"]
+
+[ext_resource type="Texture2D" uid="uid://b0wjj70etck5q" path="res://assets/santa.png" id="1_2wumw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hfj6"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsaca"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33338"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eml0r"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y03x6"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b53hx"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s26ye"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mni8"]
+atlas = ExtResource("1_2wumw")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txdtg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hfj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsaca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33338")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eml0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y03x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b53hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s26ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mni8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="santa" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_txdtg")
+autoplay = "default"
+frame_progress = 0.22003834

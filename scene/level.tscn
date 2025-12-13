@@ -1,13 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=19 format=3 uid="uid://d3ee0yqlg3jme"]
 
 [ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://script/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
 [ext_resource type="Texture2D" uid="uid://stufiml3ni0m" path="res://assets/icon.svg" id="2_36wlx"]
 [ext_resource type="Texture2D" uid="uid://dvwo1x0mvk4t0" path="res://assets/1fb61a8e4f74a56382f9a09ec4233c94.jpg" id="3_dmi07"]
 [ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="3_u2b8d"]
+[ext_resource type="Texture2D" uid="uid://mko4oio6dppf" path="res://assets/GG.png" id="4_ktmlt"]
 [ext_resource type="AudioStream" uid="uid://hu5oqevxy4ep" path="res://wham-last-christmas-single-version.mp3" id="6_bddx0"]
 [ext_resource type="Script" uid="uid://burunhuqqs5yv" path="res://script/mini_shop.gd" id="6_ismto"]
 [ext_resource type="Script" uid="uid://c22plb63dk3qx" path="res://script/area_2d.gd" id="8_u2b8d"]
+[ext_resource type="Texture2D" uid="uid://b5d1g0mymj50k" path="res://assets/tile-set1.png" id="9_aw33w"]
+[ext_resource type="Texture2D" uid="uid://cp62ltl12seg0" path="res://assets/tileset2.png" id="11_oxop7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36wlx"]
 size = Vector2(222, 662)
@@ -17,6 +20,54 @@ size = Vector2(1557, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ismto"]
 size = Vector2(731, 141.1875)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktmlt"]
+texture = ExtResource("9_aw33w")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_oxop7"]
+sources/0 = SubResource("TileSetAtlasSource_ktmlt")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gunnj"]
+texture = ExtResource("11_oxop7")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+24:0/0 = 0
+25:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j35ge"]
+sources/0 = SubResource("TileSetAtlasSource_gunnj")
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_7g0b6")
@@ -58,18 +109,20 @@ text = "тут будут статистика"
 [node name="collision" type="Node2D" parent="."]
 
 [node name="Icon3" type="Sprite2D" parent="collision"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(81, 390)
-scale = Vector2(1.7968749, 8.515625)
-texture = ExtResource("2_36wlx")
+visible = false
+position = Vector2(97.5, 326.99213)
+scale = Vector2(9.611111, 10.548134)
+texture = ExtResource("4_ktmlt")
 
 [node name="Icon2" type="Sprite2D" parent="collision"]
+visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1049, 306.99997)
-scale = Vector2(1.65625, 8.515625)
+scale = Vector2(1.2187505, 8.515625)
 texture = ExtResource("2_36wlx")
 
 [node name="Icon" type="Sprite2D" parent="collision"]
+visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(597.99994, 710.72626)
 rotation = 1.5707964
@@ -88,7 +141,7 @@ position = Vector2(1050, 317)
 shape = SubResource("RectangleShape2D_36wlx")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="collision/StaticBody2D"]
-position = Vector2(523, 619)
+position = Vector2(523, 626)
 shape = SubResource("RectangleShape2D_dmi07")
 
 [node name="backround" type="Node2D" parent="."]
@@ -225,6 +278,78 @@ script = ExtResource("8_u2b8d")
 [node name="take_box" type="CollisionShape2D" parent="killer"]
 position = Vector2(579.5, 603.59375)
 shape = SubResource("RectangleShape2D_ismto")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+scale = Vector2(3.5, 3.5)
+tile_set = SubResource("TileSet_oxop7")
+format = 2
+layer_0/tile_data = PackedInt32Array(2555952, 393216, 0, 2555953, 393216, 0, 2555954, 393216, 0, 2555955, 393216, 0, 2555956, 393216, 0, 2490405, 196608, 0, 2490406, 196608, 0, 2490407, 196608, 0, 2490408, 196608, 0, 2490409, 196608, 0, 2490410, 196608, 0, 2490411, 196608, 0, 2490412, 196608, 0, 2490413, 196608, 0, 2490414, 196608, 0, 2490415, 196608, 0, 2490416, 196608, 0, 2490417, 196608, 0, 2490418, 196608, 0, 2490419, 196608, 0, 2490420, 196608, 0, 2490421, 196608, 0, 2490422, 196608, 0, 2490423, 196608, 0, 2490424, 196608, 0, 2490425, 196608, 0, 2490426, 655360, 0, 2555962, 458752, 0, 2555961, 393216, 0, 2555960, 393216, 0, 2555959, 393216, 0, 2555958, 393216, 0, 2555957, 393216, 0, 2555951, 393216, 0, 2555950, 393216, 0, 2555949, 393216, 0, 2555948, 393216, 0, 2555947, 393216, 0, 2555946, 393216, 0, 2555945, 393216, 0, 2555944, 393216, 0, 2555943, 393216, 0, 2555942, 393216, 0, 2555941, 393216, 0, 2555940, 393216, 0, 2555939, 393216, 0, 2490380, 131072, 0, 2555916, 327680, 0, 2555917, 393216, 0, 2555918, 393216, 0, 2490381, 196608, 0, 2490382, 196608, 0, 2490383, 196608, 0, 2490384, 196608, 0, 2490385, 196608, 0, 2490386, 196608, 0, 2555919, 393216, 0, 2555920, 393216, 0, 2555921, 393216, 0, 2555922, 393216, 0, 2555923, 393216, 0, 2555924, 393216, 0, 2490389, 196608, 0, 2490390, 196608, 0, 2490391, 196608, 0, 2490392, 196608, 0, 2490393, 196608, 0, 2490388, 196608, 0, 2555925, 393216, 0, 2555926, 393216, 0, 2555927, 393216, 0, 2555928, 393216, 0, 2555929, 393216, 0, 2490394, 196608, 0, 2490395, 196608, 0, 2490396, 196608, 0, 2490397, 196608, 0, 2490398, 196608, 0, 2490387, 196608, 0, 2490399, 196608, 0, 2490400, 196608, 0, 2490401, 196608, 0, 2555932, 393216, 0, 2555931, 393216, 0, 2555930, 393216, 0, 2555934, 393216, 0, 2555935, 393216, 0, 2555936, 393216, 0, 2555937, 393216, 0, 2555938, 393216, 0, 2490403, 196608, 0, 2490404, 196608, 0, 2490402, 196608, 0, 2555933, 393216, 0, 720899, 131072, 0, 720900, 196608, 0, 720901, 196608, 0, 720902, 196608, 0, 720903, 196608, 0, 720904, 196608, 0, 720905, 196608, 0, 720906, 196608, 0, 720907, 196608, 0, 720908, 196608, 0, 720909, 196608, 0, 720910, 196608, 0, 720911, 196608, 0, 720912, 196608, 0, 720913, 655360, 0)
+
+[node name="TileMap2" type="TileMap" parent="."]
+z_index = -1
+position = Vector2(13, 11.999999)
+scale = Vector2(3.5, 3.5)
+tile_set = SubResource("TileSet_j35ge")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 851968, 0, 2, 917504, 0, 1, 786432, 0, 65536, 983040, 0, 131072, 983040, 0, 196608, 983040, 0, 262144, 983040, 0, 327680, 983040, 0, 393216, 983040, 0, 458752, 983040, 0, 524288, 983040, 0, 589824, 983040, 0, 655360, 983040, 0, 655361, 720896, 0, 655362, 1048576, 0, 589826, 1048576, 0, 524290, 1048576, 0, 458754, 1048576, 0, 393218, 1048576, 0, 327682, 1048576, 0, 262146, 1048576, 0, 196610, 1048576, 0, 131074, 1048576, 0, 65538, 1048576, 0, 65537, 720896, 0, 131073, 720896, 0, 196609, 720896, 0, 262145, 720896, 0, 327681, 720896, 0, 393217, 720896, 0, 458753, 720896, 0, 524289, 720896, 0, 589825, 720896, 0, 720896, 1114112, 0, 720897, 1179648, 0, 720898, 1245184, 0, 17, 851968, 0, 65553, 983040, 0, 131089, 983040, 0, 196625, 983040, 0, 262161, 983040, 0, 327697, 983040, 0, 393233, 983040, 0, 458769, 983040, 0, 524305, 983040, 0, 589841, 983040, 0, 655377, 983040, 0, 720913, 1114112, 0, 18, 786432, 0, 65554, 720896, 0, 131090, 720896, 0, 196626, 720896, 0, 262162, 720896, 0, 327698, 720896, 0, 393234, 720896, 0, 458770, 720896, 0, 524306, 720896, 0, 589842, 720896, 0, 655378, 720896, 0, 720914, 1179648, 0, 19, 917504, 0, 65555, 1048576, 0, 131091, 1048576, 0, 196627, 1048576, 0, 262163, 1048576, 0, 327699, 1048576, 0, 393235, 1048576, 0, 458771, 1048576, 0, 524307, 1048576, 0, 589843, 1048576, 0, 655379, 1048576, 0, 720915, 1245184, 0)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(981, -115)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(780, -79)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(559, -98)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(1110, 110)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(359, -75)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
 
 [connection signal="pressed" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_pressed"]
 [connection signal="pressed" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_pressed"]

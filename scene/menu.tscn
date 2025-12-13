@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxd4ex80q3awy"]
+[gd_scene load_steps=5 format=3 uid="uid://bxd4ex80q3awy"]
 
 [ext_resource type="Script" uid="uid://tl31el5x4gky" path="res://script/menu.gd" id="1_e5g8k"]
 [ext_resource type="Texture2D" uid="uid://d4h0xu483448g" path="res://assets/10875a562ac60a68b93ab40ce42e35c7.jpg" id="2_8hxod"]
+[ext_resource type="Texture2D" uid="uid://ddvpdv52asx76" path="res://assets/backround.png" id="2_15se8"]
+[ext_resource type="PackedScene" uid="uid://2fuolv7t5kju" path="res://santa.tscn" id="3_bo06a"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_e5g8k")
 
+[node name="Backround" type="Sprite2D" parent="."]
+position = Vector2(561.00006, 315.00003)
+scale = Vector2(4.111111, 4.111111)
+texture = ExtResource("2_15se8")
+
 [node name="10875a562Ac60a68b93Ab40Ce42e35c7" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(568.00006, 321.5)
 scale = Vector2(0.94500005, 1.0750002)
 texture = ExtResource("2_8hxod")
@@ -41,6 +49,10 @@ offset_right = 887.0
 offset_bottom = 421.0
 text = "shop
 "
+
+[node name="santa" parent="." instance=ExtResource("3_bo06a")]
+position = Vector2(159.00002, 324)
+scale = Vector2(10, 10)
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

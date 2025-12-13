@@ -15,7 +15,7 @@ var shield = false
 var money_plus = 1
 var score = 0
 var current_money = 0
-var global_money = 0 
+var global_money = 10000
 var record_score = 0 
 
 #SHOP
