@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbi7mh6m4qiv8"]
+
+[ext_resource type="Texture2D" uid="uid://bclkklnoklmbu" path="res://assets/santa2.png" id="1_tx04r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd3xg"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh3eb"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4gs8"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gayd1"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubewv"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82qbt"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6riev"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tu26p"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo4im"]
+atlas = ExtResource("1_tx04r")
+region = Rect2(640, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22334"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd3xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh3eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4gs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gayd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubewv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82qbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6riev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tu26p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo4im")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="level_santa" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_22334")
+autoplay = "default"
+frame_progress = 0.9087032

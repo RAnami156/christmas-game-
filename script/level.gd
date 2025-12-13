@@ -20,6 +20,9 @@ func _ready():
 	randomize()
 	$player.position = Global.player_position
 	spawn_snowball()
+	$backround/AnimatedLevelBackround.play("default")
+	await get_tree().create_timer(5).timeout
+	$backround/AnimatedLevelBackround.visible = false
 
 func _physics_process(delta: float) -> void:
 	$player/interface/Label2.text = str(spawn_interval)
@@ -39,6 +42,7 @@ func _physics_process(delta: float) -> void:
 		dash_text.text = ""
 	
 	update_difficulty()
+	#anim_2026()
 	
 	spawn_timer += delta
 	if spawn_timer >= spawn_interval:
@@ -56,6 +60,7 @@ func update_difficulty():
 	if Global.score > 5 and Global.score < 15:
 		Global.gravity = 200
 		spawn_interval = 3.5
+		$backround/AnimatedLevelBackround.play("default")
 		
 	elif Global.score > 15 and Global.score < 30:
 		Global.gravity = 280
@@ -64,6 +69,7 @@ func update_difficulty():
 	elif Global.score > 30 and Global.score < 50:
 		Global.gravity = 350
 		spawn_interval = 2.8
+
 		
 	elif Global.score > 50 and Global.score < 75:
 		Global.gravity = 400
@@ -104,5 +110,24 @@ func spawn_snowball():
 	snowball.position = Vector2(random_x, -50)
 	
 	add_child(snowball)
-
 	
+#func anim_2026():
+	#if Global.score == 5 :
+		#$backround/AnimatedLevelBackround.play("default")
+		#
+	#elif Global.score == 15 :
+		#$backround/AnimatedLevelBackround.play("default")
+		#
+	#elif Global.score == 30 :
+		#$backround/AnimatedLevelBackround.play("default")
+		#
+	#elif Global.score == 50 :
+		#$backround/AnimatedLevelBackround.play("default")
+		#
+	#elif Global.score == 75 :
+		#$backround/AnimatedLevelBackround.play("default")
+		#
+	#elif Global.score == 100:
+		#$backround/AnimatedLevelBackround.play("default")
+	#else:
+		#$backround/AnimatedLevelBackround.visible = false

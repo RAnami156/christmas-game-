@@ -100,16 +100,19 @@ V 0.2.0
 fix: death menu(0.2.1)
 - Fix death menu
 
-FUTURE
--Улучшение баланса
+feat: level UI(0.2.2)
+- Added new level bacround animation
+- Added santa animation 
 
+FUTURE
+
+- Added levels
 - Пауза
 - Added round
 - Added load
-- Added UI levels
 - Added loss animation (hard)
 
--Музыка
+-Музыка(0.3.~)
 
 STREAM
 сделай открытие с ленточками разно цветными если на пол падает,тоесть если не поймаешь

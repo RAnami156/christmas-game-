@@ -16,6 +16,8 @@ func _on_menu_pressed() -> void:
 	Global.player_health = 100
 	get_tree().change_scene_to_file("res://scene/menu.tscn")
 	Global.current_money = 0
+	Global.player_speed = 200
+	#G
 
 
 func _on_exit_pressed() -> void:
