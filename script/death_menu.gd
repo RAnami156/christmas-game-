@@ -13,6 +13,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_menu_pressed() -> void:
+	Global.player_health = 100
 	get_tree().change_scene_to_file("res://scene/menu.tscn")
 	Global.current_money = 0
 

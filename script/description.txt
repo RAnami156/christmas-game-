@@ -92,6 +92,13 @@ feat: new assets(v0.1.3)
 	new main menu(UI)
 	new tileset
 	new mini shop(UI)
+	
+--- V 0.2.0 --- 
+V 0.2.0 
+- Added new level backround
+
+fix: death menu(0.2.1)
+- Fix death menu
 
 FUTURE
 -Улучшение баланса
