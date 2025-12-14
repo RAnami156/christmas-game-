@@ -94,6 +94,8 @@ feat: new assets(v0.1.3)
 	new mini shop(UI)
 	
 --- V 0.2.0 --- 
+a version that focused on developing the design and fixing old bugs
+
 V 0.2.0 
 - Added new level backround
 

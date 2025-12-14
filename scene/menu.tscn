@@ -1,9 +1,115 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxd4ex80q3awy"]
+[gd_scene load_steps=21 format=3 uid="uid://bxd4ex80q3awy"]
 
 [ext_resource type="Script" uid="uid://tl31el5x4gky" path="res://script/menu.gd" id="1_e5g8k"]
 [ext_resource type="Texture2D" uid="uid://d4h0xu483448g" path="res://assets/10875a562ac60a68b93ab40ce42e35c7.jpg" id="2_8hxod"]
 [ext_resource type="Texture2D" uid="uid://ddvpdv52asx76" path="res://assets/backround.png" id="2_15se8"]
 [ext_resource type="PackedScene" uid="uid://2fuolv7t5kju" path="res://scene/santa.tscn" id="3_bo06a"]
+[ext_resource type="Texture2D" uid="uid://3dw6vpisienf" path="res://assets/main-backround-Sheet.png" id="3_xs5te"]
+[ext_resource type="Texture2D" uid="uid://b7fw7aqhusjo6" path="res://assets/main-shop-anim.png" id="4_vi6sp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi6sp"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qlln"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd6lm"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuiae"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(864, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb5j1"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(1152, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fejx"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(1440, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akoio"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(1728, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho73k"]
+atlas = ExtResource("3_xs5te")
+region = Rect2(2016, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyuxe"]
+atlas = ExtResource("4_vi6sp")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8of67"]
+atlas = ExtResource("4_vi6sp")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgh6j"]
+atlas = ExtResource("4_vi6sp")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmmby"]
+atlas = ExtResource("4_vi6sp")
+region = Rect2(864, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp55b"]
+atlas = ExtResource("4_vi6sp")
+region = Rect2(1152, 0, 288, 162)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyuxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi6sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qlln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd6lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuiae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb5j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fejx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akoio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho73k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyuxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8of67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgh6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmmby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp55b")
+}],
+"loop": false,
+"name": &"shop",
+"speed": 9.0
+}]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_e5g8k")
@@ -12,6 +118,15 @@ script = ExtResource("1_e5g8k")
 position = Vector2(561.00006, 315.00003)
 scale = Vector2(4.111111, 4.111111)
 texture = ExtResource("2_15se8")
+
+[node name="Backround2" type="AnimatedSprite2D" parent="."]
+position = Vector2(561.00006, 315.00003)
+scale = Vector2(4.111111, 4.111111)
+sprite_frames = SubResource("SpriteFrames_dyuxe")
+animation = &"shop"
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
 
 [node name="10875a562Ac60a68b93Ab40Ce42e35c7" type="Sprite2D" parent="."]
 visible = false
@@ -43,10 +158,11 @@ theme_override_font_sizes/font_size = 32
 text = "100$"
 
 [node name="shop" type="Button" parent="."]
-offset_left = 841.0
-offset_top = 390.0
-offset_right = 887.0
-offset_bottom = 421.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 990.0
+offset_top = 308.0
+offset_right = 1126.0
+offset_bottom = 373.0
 text = "shop
 "
 
@@ -56,4 +172,6 @@ scale = Vector2(10, 10)
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="mouse_entered" from="shop" to="." method="_on_shop_mouse_entered"]
+[connection signal="mouse_exited" from="shop" to="." method="_on_shop_mouse_exited"]
 [connection signal="pressed" from="shop" to="." method="_on_shop_pressed"]

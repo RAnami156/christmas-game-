@@ -15,3 +15,13 @@ func _on_exit_pressed() -> void:
 
 func _on_shop_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/shop.tscn")
+
+
+func _on_shop_mouse_entered() -> void:
+	$Backround2.play("shop")
+	print("nigga")
+
+
+
+func _on_shop_mouse_exited() -> void:
+	$Backround2.play("default")
