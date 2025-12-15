@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var player = $"../player"
-@onready var speed_button = $improvements/speed/speed_button
-@onready var hp_button = $improvements/hp/hp_button
-@onready var size_button = $improvements/size/size_button
+@onready var speed_button = $"../shop/speed"
+@onready var hp_button = $"../shop/hp"
+@onready var size_button = $"../shop/size"
 
 
 
@@ -38,3 +38,28 @@ func _on_size_button_pressed() -> void:
 		Global.player_speed -= 20
 		Global.current_money -= size_price
 		size_price += size_price * 0.4
+
+
+
+func _on_speed_button_mouse_entered() -> void:
+	$"../shop/Speed".scale += Vector2(0.5, 0.5)
+
+
+func _on_speed_button_mouse_exited() -> void:
+	$"../shop/Speed".scale -= Vector2(0.5, 0.5)
+
+
+func _on_hp_button_mouse_entered() -> void:
+	$"../shop/Hearts".scale += Vector2(0.5, 0.5)
+
+
+func _on_hp_button_mouse_exited() -> void:
+	$"../shop/Hearts".scale -= Vector2(0.5, 0.5)
+
+
+func _on_size_button_mouse_entered() -> void:
+	$"../shop/Size".scale += Vector2(0.5, 0.5)
+
+
+func _on_size_button_mouse_exited() -> void:
+	$"../shop/Size".scale -= Vector2(0.5, 0.5)

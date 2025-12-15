@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxd4ex80q3awy"]
+[gd_scene load_steps=22 format=3 uid="uid://bxd4ex80q3awy"]
 
 [ext_resource type="Script" uid="uid://tl31el5x4gky" path="res://script/menu.gd" id="1_e5g8k"]
 [ext_resource type="Texture2D" uid="uid://d4h0xu483448g" path="res://assets/10875a562ac60a68b93ab40ce42e35c7.jpg" id="2_8hxod"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2fuolv7t5kju" path="res://scene/santa.tscn" id="3_bo06a"]
 [ext_resource type="Texture2D" uid="uid://3dw6vpisienf" path="res://assets/main-backround-Sheet.png" id="3_xs5te"]
 [ext_resource type="Texture2D" uid="uid://b7fw7aqhusjo6" path="res://assets/main-shop-anim.png" id="4_vi6sp"]
+[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://assets/minecraft.ttf" id="6_1qlln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vi6sp"]
 atlas = ExtResource("3_xs5te")
@@ -150,10 +151,11 @@ text = "exit
 "
 
 [node name="money" type="Label" parent="."]
-offset_left = 803.0
-offset_top = 461.0
-offset_right = 876.0
-offset_bottom = 506.0
+offset_left = 807.0
+offset_top = 473.0
+offset_right = 903.0
+offset_bottom = 518.0
+theme_override_fonts/font = ExtResource("6_1qlln")
 theme_override_font_sizes/font_size = 32
 text = "100$"
 
@@ -169,6 +171,14 @@ text = "shop
 [node name="santa" parent="." instance=ExtResource("3_bo06a")]
 position = Vector2(159.00002, 324)
 scale = Vector2(10, 10)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 605.0
+offset_right = 65.0
+offset_bottom = 628.0
+theme_override_fonts/font = ExtResource("6_1qlln")
+text = "V 0.2.5"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

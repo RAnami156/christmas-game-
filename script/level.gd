@@ -6,6 +6,7 @@ extends Node2D
 @onready var size_text = $stat/size
 @onready var dash_text = $stat/dash
 @onready var anim_level = $AnimationPlayer
+@onready var levels = $Label
 
 var time = 0
 var default_snowball_scene = preload("res://scene/default_snowball.tscn")
@@ -32,12 +33,12 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scene/death_menu.tscn")
 		return
 	
-	$levels.text = str(Global.level) + "Level" 
-	speed_text.text = "speed: " + str(Global.player_speed)
+	levels.text ="Level " + str(Global.level)
+	speed_text.text = str(Global.player_speed)
 	money_text.text = str(snapped(Global.current_money, 0.1)) + "$"
 	score_text.text = "score: " + str(Global.score)
-	size_text.text = "size:" + str($player.scale)
-	hp_text.text = "hp: " + str(Global.player_health)
+	size_text.text =str($player.scale)
+	hp_text.text = str(Global.player_health)
 	
 	if Global.dash_unlock:
 		dash_text.text = "dash quantity:" + str(Global.dash_quantity)
@@ -132,35 +133,35 @@ func load_game():
 func level_anim():
 	if Global.score == 5 :
 		anim_level.play("levels")
-		$levels.visible = true
+		levels.visible = true
 		Global.level = 1
 		
 	elif Global.score == 15 :
 		anim_level.play("levels")
-		$levels.visible = true
+		levels.visible = true
 		Global.level = 2
 		
 	elif Global.score == 30 :
 		anim_level.play("levels")
-		$levels.visible = true
+		levels.visible = true
 		Global.level = 3
 		
 	elif Global.score == 50 :
 		anim_level.play("levels")
-		$levels.visible = true
+		levels.visible = true
 		Global.level = 4
 		
 	elif Global.score == 75 :
 		anim_level.play("levels")
-		$levels.visible = true
+		levels.visible = true
 		Global.level = 5
 		
 	elif Global.score == 100:
 		anim_level.play("levels")
-		$levels.visible = true
+		levels.visible = true
 		Global.level = "max"
 	else:
-		$levels.visible = false
+		levels.visible = false
 		#anim_level.active = false
 	
 	
@@ -184,3 +185,8 @@ func level_anim():
 		#$backround/AnimatedLevelBackround.play("default")
 	#else:
 		#$backround/AnimatedLevelBackround.visible = false
+
+
+func _on_speed_button_mouse_entered() -> void:
+	print("ghhg")
+	$shop/Speed.size += Vector2(0.1, 0.1)

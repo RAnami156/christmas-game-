@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=51 format=3 uid="uid://d3ee0yqlg3jme"]
 
 [ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://script/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
@@ -15,6 +15,11 @@
 [ext_resource type="Script" uid="uid://54i2n36ie1oa" path="res://scene/level_santa.gd" id="9_kfbl3"]
 [ext_resource type="Texture2D" uid="uid://battkq38m722l" path="res://assets/level-backround-Sheet.png" id="10_3u5es"]
 [ext_resource type="Texture2D" uid="uid://cp62ltl12seg0" path="res://assets/tileset2.png" id="11_oxop7"]
+[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://assets/minecraft.ttf" id="12_rd7b3"]
+[ext_resource type="Texture2D" uid="uid://dbqa5by3eofjl" path="res://assets/small items/hearts.png" id="16_ns1e4"]
+[ext_resource type="Texture2D" uid="uid://dl7calpphq4i0" path="res://assets/small items/speed.png" id="17_rd7b3"]
+[ext_resource type="Script" uid="uid://l5n8qpl1r78d" path="res://scene/shop.gd" id="17_tb2sr"]
+[ext_resource type="Texture2D" uid="uid://dmlin02kij0o5" path="res://assets/small items/size.png" id="18_tb2sr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36wlx"]
 size = Vector2(222, 662)
@@ -214,28 +219,12 @@ texture = ExtResource("11_oxop7")
 [sub_resource type="TileSet" id="TileSet_j35ge"]
 sources/0 = SubResource("TileSetAtlasSource_gunnj")
 
-[sub_resource type="Animation" id="Animation_3u5es"]
-resource_name = "levels"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("levels:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.9333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_60efd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("levels:modulate")
+tracks/0/path = NodePath("Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -243,6 +232,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3u5es"]
+resource_name = "levels"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60efd"]
@@ -270,15 +275,6 @@ text = "ads"
 position = Vector2(576, 324)
 limit_enabled = false
 limit_left = 500
-
-[node name="left" type="Label" parent="."]
-z_index = 1
-offset_left = 34.0
-offset_top = 21.0
-offset_right = 286.0
-offset_bottom = 206.0
-text = "тут будет интерфейс
-и прокачки мб"
 
 [node name="right" type="Label" parent="."]
 z_index = 1
@@ -343,11 +339,11 @@ texture = ExtResource("3_dmi07")
 
 [node name="level_santa" parent="backround" instance=ExtResource("8_j35ge")]
 z_index = 1
-position = Vector2(1066, 221)
+position = Vector2(1056, 219)
 script = ExtResource("9_kfbl3")
 
 [node name="AnimatedLevelBackround" type="AnimatedSprite2D" parent="backround"]
-position = Vector2(419, 318)
+position = Vector2(418, 314)
 scale = Vector2(3.9506164, 3.950617)
 sprite_frames = SubResource("SpriteFrames_mawuw")
 autoplay = "default"
@@ -361,18 +357,19 @@ position = Vector2(3, 14)
 script = ExtResource("6_ismto")
 
 [node name="money" type="Label" parent="mini_shop"]
-offset_left = 43.0
-offset_top = 83.0
-offset_right = 97.0
-offset_bottom = 106.0
-text = "money"
+offset_left = 17.0
+offset_top = 127.0
+offset_right = 113.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
+theme_override_font_sizes/font_size = 32
+text = "100$"
 
 [node name="improvements" type="Label" parent="mini_shop"]
 offset_left = 53.0
 offset_top = 122.0
 offset_right = 166.0
 offset_bottom = 145.0
-text = "improvements"
 
 [node name="speed" type="Label" parent="mini_shop/improvements"]
 layout_mode = 0
@@ -380,14 +377,14 @@ offset_left = -31.0
 offset_top = 28.0
 offset_right = 16.0
 offset_bottom = 51.0
-text = "speed"
 
 [node name="speed_button" type="Button" parent="mini_shop/improvements/speed"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 3.0
-offset_top = 24.0
-offset_right = 42.0
-offset_bottom = 44.0
+offset_left = 26.0
+offset_top = 137.0
+offset_right = 84.0
+offset_bottom = 181.0
 theme_override_font_sizes/font_size = 8
 text = "4$"
 
@@ -397,14 +394,14 @@ offset_left = 38.0
 offset_top = 28.0
 offset_right = 85.0
 offset_bottom = 51.0
-text = "hp"
 
 [node name="hp_button" type="Button" parent="mini_shop/improvements/hp"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -7.0
-offset_top = 24.0
-offset_right = 32.0
-offset_bottom = 44.0
+offset_left = -35.0
+offset_top = 58.0
+offset_right = 4.0
+offset_bottom = 96.0
 theme_override_font_sizes/font_size = 8
 text = "6$"
 
@@ -414,14 +411,14 @@ offset_left = 88.0
 offset_top = 28.0
 offset_right = 135.0
 offset_bottom = 51.0
-text = "size"
 
 [node name="size_button" type="Button" parent="mini_shop/improvements/size"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -4.0
-offset_top = 24.0
-offset_right = 35.0
-offset_bottom = 44.0
+offset_left = -91.0
+offset_top = 213.0
+offset_right = -37.0
+offset_bottom = 270.0
 theme_override_font_sizes/font_size = 8
 text = "10$"
 
@@ -434,44 +431,66 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(30, 9)
 
 [node name="hp" type="Label" parent="stat"]
-offset_left = 964.0
-offset_top = 144.0
-offset_right = 1019.0
-offset_bottom = 193.0
-text = "hp
+offset_left = 976.0
+offset_top = 116.0
+offset_right = 1032.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
+text = "100
+
 "
 
 [node name="score" type="Label" parent="stat"]
-offset_left = 964.0
-offset_top = 193.0
-offset_right = 1029.0
-offset_bottom = 216.0
+offset_left = 980.0
+offset_top = 230.0
+offset_right = 1090.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
+theme_override_font_sizes/font_size = 20
 text = "50 score"
 
 [node name="speed" type="Label" parent="stat"]
-offset_left = 962.0
-offset_top = 165.0
-offset_right = 1054.0
-offset_bottom = 188.0
-text = "speed"
+offset_left = 975.0
+offset_top = 146.0
+offset_right = 1067.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
+text = "100"
 
 [node name="size" type="Label" parent="stat"]
-offset_left = 965.0
-offset_top = 125.0
-offset_right = 1005.0
-offset_bottom = 148.0
+offset_left = 974.0
+offset_top = 182.0
+offset_right = 1014.0
+offset_bottom = 205.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
 text = "size"
 
 [node name="dash" type="Label" parent="stat"]
-offset_left = 964.0
-offset_top = 104.0
-offset_right = 1004.0
-offset_bottom = 127.0
+offset_left = 976.0
+offset_top = 92.0
+offset_right = 1024.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
 text = "dash"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_bddx0")
 pitch_scale = 0.85
+
+[node name="Hearts" type="Sprite2D" parent="."]
+position = Vector2(1054, 131)
+scale = Vector2(1.5000014, 1.5000014)
+texture = ExtResource("16_ns1e4")
+
+[node name="Speed" type="Sprite2D" parent="."]
+position = Vector2(1055.0001, 161.00002)
+scale = Vector2(1.2500048, 1.2500048)
+texture = ExtResource("17_rd7b3")
+
+[node name="Size" type="Sprite2D" parent="."]
+position = Vector2(1105.0001, 197.00002)
+scale = Vector2(1.3749982, 1.3749982)
+texture = ExtResource("18_tb2sr")
 
 [node name="killer" type="Area2D" parent="."]
 collision_layer = 0
@@ -558,15 +577,66 @@ libraries = {
 &"": SubResource("AnimationLibrary_60efd")
 }
 
-[node name="levels" type="Label" parent="."]
-offset_left = 444.0
-offset_top = 95.0
-offset_right = 658.0
-offset_bottom = 183.0
-theme_override_font_sizes/font_size = 64
-text = "0 Level"
+[node name="shop" type="Node2D" parent="."]
+script = ExtResource("17_tb2sr")
 
+[node name="hp" type="Label" parent="shop"]
+offset_left = 69.0
+offset_top = 269.0
+offset_right = 101.0
+offset_bottom = 292.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_rd7b3")
+text = "6$"
+
+[node name="speed" type="Label" parent="shop"]
+offset_left = 69.0
+offset_top = 347.0
+offset_right = 92.0
+offset_bottom = 370.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "4$"
+
+[node name="size" type="Label" parent="shop"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 65.0
+offset_top = 440.0
+offset_right = 105.0
+offset_bottom = 463.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
+text = "10$"
+
+[node name="Hearts" type="Sprite2D" parent="shop"]
+position = Vector2(79, 246)
+scale = Vector2(4.25, 4.25)
+texture = ExtResource("16_ns1e4")
+
+[node name="Speed" type="Sprite2D" parent="shop"]
+position = Vector2(79.00001, 321.00003)
+scale = Vector2(4.625, 4.625)
+texture = ExtResource("17_rd7b3")
+
+[node name="Size" type="Sprite2D" parent="shop"]
+position = Vector2(78, 404)
+scale = Vector2(5.3750005, 5.3750005)
+texture = ExtResource("18_tb2sr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 434.0
+offset_top = 91.0
+offset_right = 784.0
+offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("12_rd7b3")
+theme_override_font_sizes/font_size = 80
+text = "Level 1"
+
+[connection signal="mouse_entered" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_mouse_entered"]
+[connection signal="mouse_exited" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_mouse_exited"]
 [connection signal="pressed" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_pressed"]
+[connection signal="mouse_entered" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_mouse_entered"]
+[connection signal="mouse_exited" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_mouse_exited"]
 [connection signal="pressed" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_pressed"]
+[connection signal="mouse_entered" from="mini_shop/improvements/size/size_button" to="mini_shop" method="_on_size_button_mouse_entered"]
+[connection signal="mouse_exited" from="mini_shop/improvements/size/size_button" to="mini_shop" method="_on_size_button_mouse_exited"]
 [connection signal="pressed" from="mini_shop/improvements/size/size_button" to="mini_shop" method="_on_size_button_pressed"]
 [connection signal="body_entered" from="killer" to="killer" method="_on_body_entered"]

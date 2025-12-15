@@ -116,6 +116,13 @@ V 0.2.4
 - Added loss animation
 - Pause
 
+V 0.2.5
+- Added:
+	New level UI
+	New level count animaton
+	New howers
+	New stats UI 
+
 FUTURE
 - Added stat 
 
