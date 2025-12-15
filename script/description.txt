@@ -106,12 +106,14 @@ feat: level UI(0.2.2)
 - Added new level bacround animation
 - Added santa animation 
 
-FUTURE
+V 0.2.3
+- Added:
+	save(full logic)
+	levels(UI + logic + animation)
+	round all var
 
-- Added levels
+FUTURE
 - Пауза
-- Added round
-- Added load
 - Added loss animation (hard)
 
 -Музыка(0.3.~)

@@ -150,10 +150,10 @@ text = "exit
 "
 
 [node name="money" type="Label" parent="."]
-offset_left = 827.0
-offset_top = 411.0
-offset_right = 900.0
-offset_bottom = 456.0
+offset_left = 803.0
+offset_top = 461.0
+offset_right = 876.0
+offset_bottom = 506.0
 theme_override_font_sizes/font_size = 32
 text = "100$"
 

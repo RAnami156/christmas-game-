@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=46 format=3 uid="uid://d3ee0yqlg3jme"]
 
 [ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://script/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
@@ -213,6 +213,43 @@ texture = ExtResource("11_oxop7")
 
 [sub_resource type="TileSet" id="TileSet_j35ge"]
 sources/0 = SubResource("TileSetAtlasSource_gunnj")
+
+[sub_resource type="Animation" id="Animation_3u5es"]
+resource_name = "levels"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("levels:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_60efd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("levels:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60efd"]
+_data = {
+&"RESET": SubResource("Animation_60efd"),
+&"levels": SubResource("Animation_3u5es")
+}
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_7g0b6")
@@ -454,8 +491,7 @@ layer_0/tile_data = PackedInt32Array(2555952, 393216, 0, 2555953, 393216, 0, 255
 
 [node name="TileMap2" type="TileMap" parent="."]
 z_index = -1
-position = Vector2(13, 11.999999)
-scale = Vector2(3.5, 3.5)
+scale = Vector2(3.6, 3.6)
 tile_set = SubResource("TileSet_j35ge")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 851968, 0, 2, 917504, 0, 1, 786432, 0, 65536, 983040, 0, 131072, 983040, 0, 196608, 983040, 0, 262144, 983040, 0, 327680, 983040, 0, 393216, 983040, 0, 458752, 983040, 0, 524288, 983040, 0, 589824, 983040, 0, 655360, 983040, 0, 655361, 720896, 0, 655362, 1048576, 0, 589826, 1048576, 0, 524290, 1048576, 0, 458754, 1048576, 0, 393218, 1048576, 0, 327682, 1048576, 0, 262146, 1048576, 0, 196610, 1048576, 0, 131074, 1048576, 0, 65538, 1048576, 0, 65537, 720896, 0, 131073, 720896, 0, 196609, 720896, 0, 262145, 720896, 0, 327681, 720896, 0, 393217, 720896, 0, 458753, 720896, 0, 524289, 720896, 0, 589825, 720896, 0, 720896, 1114112, 0, 720897, 1179648, 0, 720898, 1245184, 0, 17, 851968, 0, 65553, 983040, 0, 131089, 983040, 0, 196625, 983040, 0, 262161, 983040, 0, 327697, 983040, 0, 393233, 983040, 0, 458769, 983040, 0, 524305, 983040, 0, 589841, 983040, 0, 655377, 983040, 0, 720913, 1114112, 0, 18, 786432, 0, 65554, 720896, 0, 131090, 720896, 0, 196626, 720896, 0, 262162, 720896, 0, 327698, 720896, 0, 393234, 720896, 0, 458770, 720896, 0, 524306, 720896, 0, 589842, 720896, 0, 655378, 720896, 0, 720914, 1179648, 0, 19, 917504, 0, 65555, 1048576, 0, 131091, 1048576, 0, 196627, 1048576, 0, 262163, 1048576, 0, 327699, 1048576, 0, 393235, 1048576, 0, 458771, 1048576, 0, 524307, 1048576, 0, 589843, 1048576, 0, 655379, 1048576, 0, 720915, 1245184, 0)
@@ -516,6 +552,19 @@ emission_sphere_radius = 128.0
 gravity = Vector2(-450, 1000)
 scale_amount_min = 1.5
 scale_amount_max = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_60efd")
+}
+
+[node name="levels" type="Label" parent="."]
+offset_left = 444.0
+offset_top = 95.0
+offset_right = 658.0
+offset_bottom = 183.0
+theme_override_font_sizes/font_size = 64
+text = "0 Level"
 
 [connection signal="pressed" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_pressed"]
 [connection signal="pressed" from="mini_shop/improvements/hp/hp_button" to="mini_shop" method="_on_hp_button_pressed"]

@@ -5,6 +5,7 @@ extends Node2D
 @onready var hp_text = $stat/hp
 @onready var size_text = $stat/size
 @onready var dash_text = $stat/dash
+@onready var anim_level = $AnimationPlayer
 
 var time = 0
 var default_snowball_scene = preload("res://scene/default_snowball.tscn")
@@ -16,6 +17,7 @@ var spawn_interval = 4.0
 var screen_width = 0
 
 func _ready():
+	level_anim()
 	screen_width = get_viewport_rect().size.x
 	randomize()
 	$player.position = Global.player_position
@@ -30,8 +32,9 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scene/death_menu.tscn")
 		return
 	
+	$levels.text = str(Global.level) + "Level" 
 	speed_text.text = "speed: " + str(Global.player_speed)
-	money_text.text = str(Global.current_money) + "$"
+	money_text.text = str(snapped(Global.current_money, 0.1)) + "$"
 	score_text.text = "score: " + str(Global.score)
 	size_text.text = "size:" + str($player.scale)
 	hp_text.text = "hp: " + str(Global.player_health)
@@ -42,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		dash_text.text = ""
 	
 	update_difficulty()
+	level_anim()
 	#anim_2026()
 	
 	spawn_timer += delta
@@ -62,6 +66,7 @@ func update_difficulty():
 		spawn_interval = 3.5
 		$backround/AnimatedLevelBackround.play("default")
 		
+		
 	elif Global.score > 15 and Global.score < 30:
 		Global.gravity = 280
 		spawn_interval = 3.0
@@ -69,7 +74,6 @@ func update_difficulty():
 	elif Global.score > 30 and Global.score < 50:
 		Global.gravity = 350
 		spawn_interval = 2.8
-
 		
 	elif Global.score > 50 and Global.score < 75:
 		Global.gravity = 400
@@ -82,7 +86,8 @@ func update_difficulty():
 	elif Global.score > 100:
 		Global.gravity = 550
 		spawn_interval = 2.5
-
+		
+		
 func spawn_snowball():
 	var snowball
 	var random_chance = randf()
@@ -110,6 +115,54 @@ func spawn_snowball():
 	snowball.position = Vector2(random_x, -50)
 	
 	add_child(snowball)
+	
+var save_path = "user://savegame.save"
+
+func save_game():
+	var file = FileAccess.open(save_path,FileAccess.WRITE)
+	
+	file.store_var(Global.global_money)
+
+func load_game():
+	var file =  FileAccess.open(save_path,FileAccess.READ)
+	
+	Global.global_money = file.get_var(Global.global_money)
+
+
+func level_anim():
+	if Global.score == 5 :
+		anim_level.play("levels")
+		$levels.visible = true
+		Global.level = 1
+		
+	elif Global.score == 15 :
+		anim_level.play("levels")
+		$levels.visible = true
+		Global.level = 2
+		
+	elif Global.score == 30 :
+		anim_level.play("levels")
+		$levels.visible = true
+		Global.level = 3
+		
+	elif Global.score == 50 :
+		anim_level.play("levels")
+		$levels.visible = true
+		Global.level = 4
+		
+	elif Global.score == 75 :
+		anim_level.play("levels")
+		$levels.visible = true
+		Global.level = 5
+		
+	elif Global.score == 100:
+		anim_level.play("levels")
+		$levels.visible = true
+		Global.level = "max"
+	else:
+		$levels.visible = false
+		#anim_level.active = false
+	
 	
 #func anim_2026():
 	#if Global.score == 5 :

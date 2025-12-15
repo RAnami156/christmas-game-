@@ -13,10 +13,11 @@ var shield = false
 
 #LEVEL
 var money_plus = 1
-var score = 0
+var score = 100
 var current_money = 0
-var global_money = 10000
+var global_money = 0
 var record_score = 0 
+var level = 0
 
 #SHOP
 var dash_unlock = false

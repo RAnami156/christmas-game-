@@ -12,9 +12,9 @@ var hp_price = 6.0
 var size_price = 10.0
 
 func _physics_process(_delta: float) -> void:
-	speed_button.text = str(snapped(speed_price,0.1)) + "$"
-	hp_button.text = str(snapped(hp_price,0.1)) + "$"
-	size_button.text = str(snapped(size_price,0.1)) + "$"
+	speed_button.text = str(snapped(speed_price, 0.1)) + "$"
+	hp_button.text = str(snapped(hp_price, 0.1)) + "$"
+	size_button.text = str(snapped(size_price, 0.1)) + "$"
 	
 
 
