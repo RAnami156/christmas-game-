@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var take_box = $Area2D/take_box
 @onready var shield_anim = $shield
 @onready var anim_effects = $effects
+@onready var anim = $AnimationPlayer
+@onready var text = $minus
+
 
 var is_dashing = false
 
@@ -12,7 +15,14 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#print(Global.money_plus) #FOR TESTS
-	$plus.text = str(Global.money_plus) + "$"
+	
+	if Input.is_action_just_pressed("ui_select"):
+		get_tree().paused = not get_tree().paused
+		#$PauseMenu.visible = get_tree().paused  # Показать/скрыть меню
+		return
+	
+	$plus.text = "+" + str(Global.money_plus) + "$"
+	text.text = "-" + str(Global.loose_count) + "hp"
 	update_difficulty()
 	if Global.shield:
 		shield_anim.visible = true
@@ -45,6 +55,14 @@ func _physics_process(delta: float) -> void:
 	Global.player_position = position
 	move_and_slide()
 	
+	if Global.loose:
+		text.visible = true
+		anim.play("loose")
+		await anim.animation_finished
+		Global.loose = false
+	else:
+		text.visible = false
+	
 
 func dash_to(target_pos: Vector2):
 	is_dashing = true
@@ -52,7 +70,7 @@ func dash_to(target_pos: Vector2):
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)  
 	tween.set_trans(Tween.TRANS_CUBIC)  
-	tween.tween_property(self, "position", target_pos, 0.2)  # 0.2 секунды
+	tween.tween_property(self, "position", target_pos, 0.2) 
 	
 	await tween.finished
 	is_dashing = false
@@ -61,10 +79,16 @@ func dash_to(target_pos: Vector2):
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	#print("play")
-	anim_effects.play("+1")
+	
+	if "default_snowball" in _body.name:
+		Global.loose_count = 20
+		anim_effects.play("+1")
+		
 	if "bomb_snowball" in _body.name and Global.shield == false:
 			Global.player_health -= 30
+			Global.loose_count = 30
 			print("take bomb")
+			
 	if "bomb_snowball" in _body.name and Global.shield:
 		Global.current_money += 5
 		Global.shield = false

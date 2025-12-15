@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bf6ouahb5e8ea"]
+[gd_scene load_steps=37 format=3 uid="uid://bf6ouahb5e8ea"]
 
 [ext_resource type="Texture2D" uid="uid://c7dq8o2ldmd0l" path="res://assets/1.png" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://dmh6tj8l7ueqt" path="res://script/player.gd" id="1_s4jxa"]
@@ -123,10 +123,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvtld"]
-size = Vector2(40.909092, 62.3409)
+size = Vector2(46.36364, 62.3409)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4jxa"]
-size = Vector2(63.596603, 26.34403)
+size = Vector2(48.179382, 26.34403)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42h83"]
 atlas = ExtResource("6_oh5ij")
@@ -269,6 +269,66 @@ _data = {
 &"RESET": SubResource("Animation_hp4bs")
 }
 
+[sub_resource type="Animation" id="Animation_gtgx6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("minus:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("minus:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-29, -41)]
+}
+
+[sub_resource type="Animation" id="Animation_mutoe"]
+resource_name = "loose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("minus:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("minus:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-29, -41), Vector2(-29, -163.99998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjjxb"]
+_data = {
+&"RESET": SubResource("Animation_gtgx6"),
+&"loose": SubResource("Animation_mutoe")
+}
+
 [node name="player" type="CharacterBody2D"]
 z_index = -3
 scale = Vector2(1.1, 1.1)
@@ -283,7 +343,7 @@ animation = &"NY_Idle"
 autoplay = "NY_Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.2727284, 19.090908)
+position = Vector2(0.4545437, 19.090908)
 shape = SubResource("RectangleShape2D_fvtld")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -291,8 +351,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="take_box" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3.617725, -26.399994)
-rotation = 0.010049938
+position = Vector2(0.46363503, -26.358973)
+rotation = 0.010049935
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_s4jxa")
 
@@ -331,5 +391,20 @@ offset_bottom = 71.54545
 scale = Vector2(0.3, 0.3)
 theme_override_font_sizes/font_size = 100
 text = "+1"
+
+[node name="minus" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -41.0
+offset_right = 243.0
+offset_bottom = 96.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "-20hp"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sjjxb")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	Global.global_money += Global.current_money
+	Global.loose = false 
 
 func _physics_process(_delta: float) -> void:
 	if Global.score > Global.record_score:

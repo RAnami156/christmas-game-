@@ -111,10 +111,13 @@ V 0.2.3
 	save(full logic)
 	levels(UI + logic + animation)
 	round all var
+	
+V 0.2.4
+- Added loss animation
+- Pause
 
 FUTURE
-- Пауза
-- Added loss animation (hard)
+- Added stat 
 
 -Музыка(0.3.~)
 
