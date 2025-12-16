@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxd4ex80q3awy"]
+[gd_scene load_steps=30 format=3 uid="uid://bxd4ex80q3awy"]
 
 [ext_resource type="Script" uid="uid://tl31el5x4gky" path="res://script/menu.gd" id="1_e5g8k"]
 [ext_resource type="Texture2D" uid="uid://d4h0xu483448g" path="res://assets/10875a562ac60a68b93ab40ce42e35c7.jpg" id="2_8hxod"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://3dw6vpisienf" path="res://assets/main-backround-Sheet.png" id="3_xs5te"]
 [ext_resource type="Texture2D" uid="uid://b7fw7aqhusjo6" path="res://assets/main-shop-anim.png" id="4_vi6sp"]
 [ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://assets/minecraft.ttf" id="6_1qlln"]
+[ext_resource type="Texture2D" uid="uid://uga7yslybihr" path="res://assets/play anim.png" id="8_wd6lm"]
+[ext_resource type="Texture2D" uid="uid://de0rbicluq3uv" path="res://assets/exit.png" id="9_nuiae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vi6sp"]
 atlas = ExtResource("3_xs5te")
@@ -112,6 +114,60 @@ animations = [{
 "speed": 9.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i5tc"]
+atlas = ExtResource("8_wd6lm")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbutu"]
+atlas = ExtResource("8_wd6lm")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6i5tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i5tc")
+}],
+"loop": true,
+"name": &"play hover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbutu")
+}],
+"loop": true,
+"name": &"play idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_026qx"]
+atlas = ExtResource("9_nuiae")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pci4"]
+atlas = ExtResource("9_nuiae")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o854k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_026qx")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pci4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="menu" type="Node2D"]
 script = ExtResource("1_e5g8k")
 
@@ -136,6 +192,7 @@ scale = Vector2(0.94500005, 1.0750002)
 texture = ExtResource("2_8hxod")
 
 [node name="play" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 366.0
 offset_top = 128.0
 offset_right = 750.0
@@ -143,10 +200,11 @@ offset_bottom = 248.0
 text = "Play"
 
 [node name="exit" type="Button" parent="."]
-offset_left = 423.0
-offset_top = 417.0
-offset_right = 623.0
-offset_bottom = 487.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 564.0
+offset_top = 418.0
+offset_right = 772.0
+offset_bottom = 488.0
 text = "exit
 "
 
@@ -180,7 +238,34 @@ offset_bottom = 628.0
 theme_override_fonts/font = ExtResource("6_1qlln")
 text = "V 0.2.5"
 
+[node name="play-button-anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(560, 186)
+scale = Vector2(8.598961, 7.4999995)
+sprite_frames = SubResource("SpriteFrames_6i5tc")
+animation = &"play idle"
+autoplay = "play idle"
+
+[node name="exit-button-anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(667, 453.00003)
+scale = Vector2(4.625, 4.625)
+sprite_frames = SubResource("SpriteFrames_o854k")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="record score" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 175.0
+offset_right = 301.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("6_1qlln")
+theme_override_font_sizes/font_size = 32
+text = "your record:5"
+
+[connection signal="mouse_entered" from="play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
 [connection signal="mouse_entered" from="shop" to="." method="_on_shop_mouse_entered"]
 [connection signal="mouse_exited" from="shop" to="." method="_on_shop_mouse_exited"]

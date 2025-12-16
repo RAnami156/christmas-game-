@@ -6,10 +6,11 @@ extends CharacterBody2D
 @onready var anim = $AnimationPlayer
 @onready var text = $minus
 
-
+var speed = Global.player_speed
 var is_dashing = false
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	$plus.visible = false
 	
 
@@ -18,9 +19,13 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_select"):
 		get_tree().paused = not get_tree().paused
-		#$PauseMenu.visible = get_tree().paused  # Показать/скрыть меню
-		return
-	
+		
+	if get_tree().paused:
+		speed = 0
+	else:
+		speed = Global.player_speed
+
+		
 	$plus.text = "+" + str(Global.money_plus) + "$"
 	text.text = "-" + str(Global.loose_count) + "hp"
 	update_difficulty()
@@ -39,9 +44,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	var direction := Input.get_axis("A", "D")
 	if direction:
-		velocity.x = direction * Global.player_speed
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, Global.player_speed)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	#DASH
 	if Global.dash_unlock and Global.dash_quantity > 0 and not is_dashing:

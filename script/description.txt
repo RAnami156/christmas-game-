@@ -122,6 +122,15 @@ V 0.2.5
 	New level count animaton
 	New howers
 	New stats UI 
+	
+V 0.2.6
+- Added:
+	New button animation
+	Save record score(logic + UI)
+	
+- Fix:
+	Level animation 
+	Pause(full fix)
 
 FUTURE
 - Added stat 

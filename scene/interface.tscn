@@ -1,14 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://c12s3hqyc1nd3"]
+[gd_scene load_steps=6 format=3 uid="uid://c12s3hqyc1nd3"]
 
 [ext_resource type="Script" uid="uid://pb4ca2qtbtnb" path="res://script/interface.gd" id="1_i8sso"]
+[ext_resource type="Texture2D" uid="uid://de0rbicluq3uv" path="res://assets/exit.png" id="2_bf661"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_026qx"]
+atlas = ExtResource("2_bf661")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pci4"]
+atlas = ExtResource("2_bf661")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q87o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_026qx")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pci4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="interface" type="CanvasLayer"]
 script = ExtResource("1_i8sso")
 
 [node name="exit" type="Button" parent="."]
-offset_left = 456.0
-offset_top = 3.0
-offset_right = 695.0
+offset_left = 501.0
+offset_top = 11.0
+offset_right = 670.0
 offset_bottom = 60.0
 text = "exit"
 
@@ -19,4 +47,13 @@ offset_right = 381.0
 offset_bottom = 47.0
 text = "asda"
 
+[node name="exit-button-anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(580.00006, 35.000004)
+scale = Vector2(3.8749995, 3.8750002)
+sprite_frames = SubResource("SpriteFrames_7q87o")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

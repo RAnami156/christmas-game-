@@ -24,12 +24,13 @@ func _ready():
 	$player.position = Global.player_position
 	spawn_snowball()
 	$backround/AnimatedLevelBackround.play("default")
-	await get_tree().create_timer(5).timeout
+	await $backround/AnimatedLevelBackround.animation_finished
 	$backround/AnimatedLevelBackround.visible = false
 
 func _physics_process(delta: float) -> void:
 	$player/interface/Label2.text = str(spawn_interval)
 	if Global.player_health <= 0:
+		get_tree().paused = false
 		get_tree().change_scene_to_file("res://scene/death_menu.tscn")
 		return
 	
@@ -123,11 +124,13 @@ func save_game():
 	var file = FileAccess.open(save_path,FileAccess.WRITE)
 	
 	file.store_var(Global.global_money)
+	file.store_var(Global.record_score)
 
 func load_game():
 	var file =  FileAccess.open(save_path,FileAccess.READ)
 	
 	Global.global_money = file.get_var(Global.global_money)
+	Global.record_score = file.get_var(Global.record_score)
 
 
 func level_anim():
