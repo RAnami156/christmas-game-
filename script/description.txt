@@ -127,10 +127,13 @@ V 0.2.6
 - Added:
 	New button animation
 	Save record score(logic + UI)
-	
 - Fix:
 	Level animation 
 	Pause(full fix)
+	
+V 0.2.7
+- Added:
+	New UI shop
 
 FUTURE
 - Added stat 

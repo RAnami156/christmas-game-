@@ -1,10 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://doywygmv4m3qs"]
+[gd_scene load_steps=14 format=3 uid="uid://doywygmv4m3qs"]
 
 [ext_resource type="Script" uid="uid://b2lujx4knoao" path="res://script/shop.gd" id="1_4p3p6"]
 [ext_resource type="PackedScene" uid="uid://c12s3hqyc1nd3" path="res://scene/interface.tscn" id="1_iuafe"]
+[ext_resource type="Texture2D" uid="uid://cvomcgqt7piy6" path="res://assets/small items/magnet.png" id="3_pd0vs"]
+[ext_resource type="Texture2D" uid="uid://beegoyrlyjnqh" path="res://assets/shop backround.png" id="3_phbgv"]
+[ext_resource type="Texture2D" uid="uid://bebqwhj11bk7m" path="res://assets/small items/dash.png" id="4_prb2b"]
+[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://assets/minecraft.ttf" id="4_uyq3k"]
+[ext_resource type="Texture2D" uid="uid://c7wyaduf5cwrs" path="res://assets/small items/time freeze.png" id="7_tartn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyq3k"]
+atlas = ExtResource("3_phbgv")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wha2"]
+atlas = ExtResource("3_phbgv")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brg4d"]
+atlas = ExtResource("3_phbgv")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd0vs"]
+atlas = ExtResource("3_phbgv")
+region = Rect2(864, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prb2b"]
+atlas = ExtResource("3_phbgv")
+region = Rect2(1152, 0, 288, 162)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tartn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyq3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wha2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brg4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd0vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prb2b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="shop" type="Node2D"]
 script = ExtResource("1_4p3p6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(563, 332)
+scale = Vector2(4.0617285, 4.0617285)
+sprite_frames = SubResource("SpriteFrames_tartn")
+autoplay = "default"
+frame = 4
+frame_progress = 0.9638605
+
+[node name="Magnet" type="Sprite2D" parent="."]
+position = Vector2(103, 212)
+scale = Vector2(3.25, 3.25)
+texture = ExtResource("3_pd0vs")
+
+[node name="Dash" type="Sprite2D" parent="."]
+position = Vector2(228.00002, 209)
+scale = Vector2(4.2499995, 4.053847)
+texture = ExtResource("4_prb2b")
 
 [node name="interface" parent="." instance=ExtResource("1_iuafe")]
 
@@ -39,11 +105,12 @@ text = "Magnet"
 
 [node name="magnet_button" type="Button" parent="magnet"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 19.0
-offset_right = 60.0
-offset_bottom = 50.0
-text = "200$"
+offset_left = -132.0
+offset_top = 50.0
+offset_right = -92.0
+offset_bottom = 96.0
+text = "
+"
 
 [node name="slow_mod" type="Label" parent="."]
 offset_left = 738.0
@@ -59,6 +126,22 @@ offset_top = 22.0
 offset_right = 61.0
 offset_bottom = 53.0
 text = "300$"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 209.0
+offset_top = 477.0
+offset_right = 659.0
+offset_bottom = 720.0
+theme_override_fonts/font = ExtResource("4_uyq3k")
+theme_override_font_sizes/font_size = 80
+text = "SANTA
+SHOP"
+horizontal_alignment = 1
+
+[node name="TimeFreeze" type="Sprite2D" parent="."]
+position = Vector2(344.00003, 211.00002)
+scale = Vector2(3.2499979, 3.2499979)
+texture = ExtResource("7_tartn")
 
 [connection signal="pressed" from="dash/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="magnet/magnet_button" to="." method="_on_magnet_button_pressed"]
