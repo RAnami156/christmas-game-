@@ -41,6 +41,7 @@ offset_bottom = 60.0
 text = "exit"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 341.0
 offset_top = 24.0
 offset_right = 381.0

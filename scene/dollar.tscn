@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cje7lc3cvl4tk"]
+
+[ext_resource type="Script" uid="uid://crptpwjkyyyig" path="res://script/dollar.gd" id="1_a8gqe"]
+[ext_resource type="Texture2D" uid="uid://bevisdew80655" path="res://assets/small items/dollar.png" id="2_t3p35"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5mi4"]
+radius = 11.045361
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijx1n"]
+radius = 6.0827627
+
+[node name="dollar" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_a8gqe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_b5mi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ijx1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t3p35")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -8.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 7.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

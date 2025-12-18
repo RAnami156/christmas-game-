@@ -86,11 +86,11 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	#print("play")
 	
 	if "default_snowball" in _body.name:
-		Global.loose_count = 20
 		anim_effects.play("+1")
 		
 	if "bomb_snowball" in _body.name and Global.shield == false:
 			Global.player_health -= 30
+			Global.loose = true
 			Global.loose_count = 30
 			print("take bomb")
 			

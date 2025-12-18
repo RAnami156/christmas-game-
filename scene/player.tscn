@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://bf6ouahb5e8ea"]
+[gd_scene load_steps=38 format=3 uid="uid://bf6ouahb5e8ea"]
 
 [ext_resource type="Texture2D" uid="uid://c7dq8o2ldmd0l" path="res://assets/1.png" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://dmh6tj8l7ueqt" path="res://script/player.gd" id="1_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://cjx3qm0lgipfh" path="res://assets/idle.png" id="2_ct4mp"]
 [ext_resource type="Texture2D" uid="uid://bvwn3v5dppnq3" path="res://assets/NY_idle.png" id="3_ct4mp"]
+[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="6_hp4bs"]
 [ext_resource type="Texture2D" uid="uid://bq0p16rtg8f75" path="res://addons/shield.png" id="6_oh5ij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh5ij"]
@@ -197,7 +198,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-10, -54.731), Vector2(-10, -177.273)]
+"values": [Vector2(-24.545454, -37.272728), Vector2(-24.545456, -147.27272)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -206,22 +207,10 @@ tracks/1/path = NodePath("plus:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.40000004, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("plus:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_hp4bs"]
@@ -233,10 +222,10 @@ tracks/0/path = NodePath("plus:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(-24.545454, -37.272728)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -249,18 +238,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("plus:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0009999999),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g2vtq"]
@@ -274,26 +251,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("minus:modulate")
+tracks/0/path = NodePath("minus:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(-23.636362, -36.363636)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("minus:position")
+tracks/1/path = NodePath("minus:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-29, -41)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mutoe"]
@@ -301,26 +278,26 @@ resource_name = "loose"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("minus:modulate")
+tracks/0/path = NodePath("minus:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(-23.636362, -36.363636), Vector2(-23.636362, -156.36363)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("minus:position")
+tracks/1/path = NodePath("minus:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-29, -41), Vector2(-29, -163.99998)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sjjxb"]
@@ -383,28 +360,29 @@ libraries = {
 }
 autoplay = "+1"
 
-[node name="plus" type="Label" parent="."]
-offset_left = -10.909091
-offset_top = -65.45455
-offset_right = 103.09091
-offset_bottom = 71.54545
-scale = Vector2(0.3, 0.3)
-theme_override_font_sizes/font_size = 100
-text = "+1"
-
-[node name="minus" type="Label" parent="."]
-offset_left = -29.0
-offset_top = -41.0
-offset_right = 243.0
-offset_bottom = 96.0
-scale = Vector2(0.2, 0.2)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "-20hp"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_sjjxb")
 }
+
+[node name="minus" type="Label" parent="."]
+offset_left = -23.636362
+offset_top = -36.363636
+offset_right = 32.36364
+offset_bottom = -10.363636
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_hp4bs")
+theme_override_font_sizes/font_size = 21
+text = "-20"
+
+[node name="plus" type="Label" parent="."]
+offset_left = -24.545454
+offset_top = -37.272728
+offset_right = 22.454546
+offset_bottom = -14.272728
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_hp4bs")
+theme_override_font_sizes/font_size = 21
+text = "+50"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

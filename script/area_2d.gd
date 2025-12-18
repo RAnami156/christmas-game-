@@ -3,6 +3,7 @@ extends Area2D
 func _on_body_entered(_body: Node2D) -> void:
 	if "default_snowball" in _body.name: 
 		Global.player_health -= 20
+		Global.loose_count = 20
 		print("loose snowball")
 		Global.loose = true
 		

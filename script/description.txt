@@ -131,9 +131,11 @@ V 0.2.6
 	Level animation 
 	Pause(full fix)
 	
-V 0.2.7
-- Added:
-	New UI shop
+V 0.2.8
+- Added new shop(logic)
+- Fix some UI problem in death menu
+- Fix loose animation
+- Added dollar
 
 FUTURE
 - Added stat 

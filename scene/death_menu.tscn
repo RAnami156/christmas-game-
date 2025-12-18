@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://di4mkd7ennj76"]
+[gd_scene load_steps=7 format=3 uid="uid://di4mkd7ennj76"]
 
 [ext_resource type="Script" uid="uid://cuxmemg72ymfd" path="res://script/death_menu.gd" id="1_fvpot"]
+[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="2_p50hx"]
+[ext_resource type="Texture2D" uid="uid://de0rbicluq3uv" path="res://assets/exit.png" id="3_hgmv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_026qx"]
+atlas = ExtResource("3_hgmv1")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pci4"]
+atlas = ExtResource("3_hgmv1")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn778"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_026qx")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pci4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="death_menu" type="Node2D"]
 script = ExtResource("1_fvpot")
@@ -11,6 +40,7 @@ offset_left = 251.0
 offset_top = 39.0
 offset_right = 905.0
 offset_bottom = 312.0
+theme_override_fonts/font = ExtResource("2_p50hx")
 theme_override_font_sizes/font_size = 200
 text = "DEATH"
 
@@ -19,6 +49,7 @@ offset_left = 274.0
 offset_top = 339.0
 offset_right = 384.0
 offset_bottom = 384.0
+theme_override_fonts/font = ExtResource("2_p50hx")
 theme_override_font_sizes/font_size = 32
 text = "record:"
 
@@ -27,6 +58,7 @@ offset_left = 273.0
 offset_top = 293.0
 offset_right = 488.0
 offset_bottom = 338.0
+theme_override_fonts/font = ExtResource("2_p50hx")
 theme_override_font_sizes/font_size = 32
 text = "current score:"
 
@@ -35,6 +67,7 @@ offset_left = 511.0
 offset_top = 391.0
 offset_right = 551.0
 offset_bottom = 414.0
+theme_override_fonts/font = ExtResource("2_p50hx")
 text = "100$"
 
 [node name="menu" type="Button" parent="."]
@@ -46,10 +79,19 @@ text = "go to main menu"
 
 [node name="exit" type="Button" parent="."]
 offset_left = 680.0
-offset_top = 455.0
-offset_right = 766.0
+offset_top = 448.0
+offset_right = 834.0
 offset_bottom = 486.0
 text = "quit game"
 
+[node name="exit-button-anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(752, 468)
+scale = Vector2(3.8749995, 3.8750002)
+sprite_frames = SubResource("SpriteFrames_qn778")
+animation = &"idle"
+autoplay = "idle"
+
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cvomcgqt7piy6" path="res://assets/small items/magnet.png" id="3_pd0vs"]
 [ext_resource type="Texture2D" uid="uid://beegoyrlyjnqh" path="res://assets/shop backround.png" id="3_phbgv"]
 [ext_resource type="Texture2D" uid="uid://bebqwhj11bk7m" path="res://assets/small items/dash.png" id="4_prb2b"]
-[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://assets/minecraft.ttf" id="4_uyq3k"]
+[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="4_uyq3k"]
 [ext_resource type="Texture2D" uid="uid://c7wyaduf5cwrs" path="res://assets/small items/time freeze.png" id="7_tartn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uyq3k"]
@@ -82,50 +82,61 @@ offset_bottom = 26.0
 text = "100$"
 
 [node name="dash" type="Label" parent="."]
-offset_left = 509.0
-offset_top = 139.0
-offset_right = 553.0
-offset_bottom = 164.0
-text = "DASH"
+offset_left = 207.0
+offset_top = 235.0
+offset_right = 255.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("4_uyq3k")
+text = "DASH
+100$"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="dash"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -6.0
-offset_top = 20.0
-offset_right = 52.0
-offset_bottom = 38.0
-text = "100$"
+offset_left = 1.0
+offset_top = -45.0
+offset_right = 41.0
+offset_bottom = 2.0
 
 [node name="magnet" type="Label" parent="."]
-offset_left = 214.0
-offset_top = 138.0
-offset_right = 273.0
-offset_bottom = 161.0
-text = "Magnet"
+offset_left = 70.0
+offset_top = 236.0
+offset_right = 138.0
+offset_bottom = 271.0
+theme_override_fonts/font = ExtResource("4_uyq3k")
+text = "magnet
+50$"
+horizontal_alignment = 1
 
 [node name="magnet_button" type="Button" parent="magnet"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -132.0
-offset_top = 50.0
-offset_right = -92.0
-offset_bottom = 96.0
+offset_left = 12.0
+offset_top = -49.0
+offset_right = 52.0
+offset_bottom = -3.0
 text = "
 "
 
 [node name="slow_mod" type="Label" parent="."]
-offset_left = 738.0
-offset_top = 141.0
-offset_right = 813.0
-offset_bottom = 164.0
-text = "slow mod"
+offset_left = 303.0
+offset_top = 238.0
+offset_right = 385.0
+offset_bottom = 273.0
+theme_override_fonts/font = ExtResource("4_uyq3k")
+text = "slow mod
+30$"
+horizontal_alignment = 1
 
 [node name="slow_mod_button" type="Button" parent="slow_mod"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 16.0
-offset_top = 22.0
-offset_right = 61.0
-offset_bottom = 53.0
-text = "300$"
+offset_left = 31.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = -5.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 209.0
@@ -143,6 +154,25 @@ position = Vector2(344.00003, 211.00002)
 scale = Vector2(3.2499979, 3.2499979)
 texture = ExtResource("7_tartn")
 
+[node name="money" type="Label" parent="."]
+offset_left = 956.0
+offset_top = 164.0
+offset_right = 1108.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("4_uyq3k")
+theme_override_font_sizes/font_size = 32
+text = "1000.0$"
+
+[connection signal="mouse_entered" from="dash" to="." method="_on_dash_mouse_entered"]
+[connection signal="mouse_exited" from="dash" to="." method="_on_dash_mouse_exited"]
+[connection signal="mouse_entered" from="dash/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="dash/Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="dash/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="magnet" to="." method="_on_magnet_mouse_entered"]
+[connection signal="mouse_exited" from="magnet" to="." method="_on_magnet_mouse_exited"]
+[connection signal="mouse_entered" from="magnet/magnet_button" to="." method="_on_magnet_button_mouse_entered"]
+[connection signal="mouse_exited" from="magnet/magnet_button" to="." method="_on_magnet_button_mouse_exited"]
 [connection signal="pressed" from="magnet/magnet_button" to="." method="_on_magnet_button_pressed"]
+[connection signal="mouse_entered" from="slow_mod/slow_mod_button" to="." method="_on_slow_mod_button_mouse_entered"]
+[connection signal="mouse_exited" from="slow_mod/slow_mod_button" to="." method="_on_slow_mod_button_mouse_exited"]
 [connection signal="pressed" from="slow_mod/slow_mod_button" to="." method="_on_slow_mod_button_pressed"]

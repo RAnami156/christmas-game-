@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var exit_anim = $"exit-button-anim"
+
 var save_path = "user://savegame.save"
 
 func _ready() -> void:
@@ -46,3 +48,11 @@ func load_game():
 		Global.global_money = file.get_var()
 		Global.record_score = file.get_var()
 		file.close()
+
+
+func _on_exit_mouse_entered() -> void:
+	exit_anim.play("hover")
+
+
+func _on_exit_mouse_exited() -> void:
+	exit_anim.play("idle")
