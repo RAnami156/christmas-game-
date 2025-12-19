@@ -1,8 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://di4mkd7ennj76"]
+[gd_scene load_steps=12 format=3 uid="uid://di4mkd7ennj76"]
 
 [ext_resource type="Script" uid="uid://cuxmemg72ymfd" path="res://script/death_menu.gd" id="1_fvpot"]
+[ext_resource type="Texture2D" uid="uid://ddvpdv52asx76" path="res://assets/backround.png" id="2_hgmv1"]
 [ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="2_p50hx"]
 [ext_resource type="Texture2D" uid="uid://de0rbicluq3uv" path="res://assets/exit.png" id="3_hgmv1"]
+[ext_resource type="Texture2D" uid="uid://dq0b6qg8renxq" path="res://assets/mian-menu-button.png" id="3_qn778"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c72oe"]
+atlas = ExtResource("3_qn778")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voym3"]
+atlas = ExtResource("3_qn778")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rytqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c72oe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voym3")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_026qx"]
 atlas = ExtResource("3_hgmv1")
@@ -33,6 +62,18 @@ animations = [{
 
 [node name="death_menu" type="Node2D"]
 script = ExtResource("1_fvpot")
+
+[node name="Backround" type="Sprite2D" parent="."]
+self_modulate = Color(0.27, 0.27, 0.27, 1)
+position = Vector2(577, 329.00003)
+scale = Vector2(4.3827157, 4.382716)
+texture = ExtResource("2_hgmv1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(359, 467)
+scale = Vector2(4.3827157, 4.382716)
+sprite_frames = SubResource("SpriteFrames_rytqf")
+frame_progress = 0.29776752
 
 [node name="text" type="Label" parent="."]
 modulate = Color(1, 0, 0, 1)
@@ -71,10 +112,11 @@ theme_override_fonts/font = ExtResource("2_p50hx")
 text = "100$"
 
 [node name="menu" type="Button" parent="."]
-offset_left = 282.0
-offset_top = 446.0
-offset_right = 422.0
-offset_bottom = 477.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 261.0
+offset_top = 442.0
+offset_right = 457.0
+offset_bottom = 494.0
 text = "go to main menu"
 
 [node name="exit" type="Button" parent="."]
@@ -85,12 +127,14 @@ offset_bottom = 486.0
 text = "quit game"
 
 [node name="exit-button-anim" type="AnimatedSprite2D" parent="."]
-position = Vector2(752, 468)
+position = Vector2(771, 467.00003)
 scale = Vector2(3.8749995, 3.8750002)
 sprite_frames = SubResource("SpriteFrames_qn778")
-animation = &"idle"
+animation = &"hover"
 autoplay = "idle"
 
+[connection signal="mouse_entered" from="menu" to="." method="_on_menu_mouse_entered"]
+[connection signal="mouse_exited" from="menu" to="." method="_on_menu_mouse_exited"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]

@@ -137,6 +137,8 @@ V 0.2.8
 - Fix loose animation
 - Added dollar
 
+V 0.2.9
+
 FUTURE
 - Added stat 
 

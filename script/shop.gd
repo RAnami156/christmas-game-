@@ -6,8 +6,8 @@ extends Node2D
 @onready var dash_pic = $Dash
 
 var dash_price = 100
-var magnet_price = 200
-var slow_mod_price = 300
+var magnet_price = 50
+var slow_mod_price = 30
 
 func _physics_process(_delta: float) -> void:
 	$money.text = str(Global.global_money) + "$"

@@ -1,0 +1,228 @@
+[gd_scene load_steps=17 format=3 uid="uid://bau3yhiaxwlvs"]
+
+[ext_resource type="Script" uid="uid://ujy5gwpgrmqq" path="res://script/tutorial.gd" id="1_nvmt1"]
+[ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="1_p31a4"]
+[ext_resource type="Texture2D" uid="uid://r2l0i4o67543" path="res://assets/tutorial-backround.png" id="2_won01"]
+[ext_resource type="Texture2D" uid="uid://de0rbicluq3uv" path="res://assets/exit.png" id="3_won01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqdaa"]
+atlas = ExtResource("2_won01")
+region = Rect2(0, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo30s"]
+atlas = ExtResource("2_won01")
+region = Rect2(288, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6axd3"]
+atlas = ExtResource("2_won01")
+region = Rect2(576, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whbp6"]
+atlas = ExtResource("2_won01")
+region = Rect2(864, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otirw"]
+atlas = ExtResource("2_won01")
+region = Rect2(1152, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi44v"]
+atlas = ExtResource("2_won01")
+region = Rect2(1440, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xftar"]
+atlas = ExtResource("2_won01")
+region = Rect2(1728, 0, 288, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iio1"]
+atlas = ExtResource("2_won01")
+region = Rect2(2016, 0, 288, 162)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l02f5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqdaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo30s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6axd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whbp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otirw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi44v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xftar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iio1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_026qx"]
+atlas = ExtResource("3_won01")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pci4"]
+atlas = ExtResource("3_won01")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqdaa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_026qx")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pci4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource("1_nvmt1")
+
+[node name="bakround" type="AnimatedSprite2D" parent="."]
+position = Vector2(572.00006, 319)
+scale = Vector2(4.111111, 4.111111)
+sprite_frames = SubResource("SpriteFrames_l02f5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 13.0
+offset_right = 878.0
+offset_bottom = 79.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_p31a4")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVERVIEW🎅"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 208.0
+offset_top = 75.0
+offset_right = 892.0
+offset_bottom = 150.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_p31a4")
+text = "Welcome!
+In this game, you play as Santa’s bag, catching gifts falling from the sky.
+Your goal is to earn as much money as possible and set a new record."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 135.0
+offset_right = 506.0
+offset_bottom = 410.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_p31a4")
+text = "🎮 CONTROL:
+1) A / D — move the bag left and right
+2) Space — pause the game
+3) Shift + A/ D — dash(need to buy)
+
+🎁 GIFTS (Different types of gifts fall from the sky:)
+🎁 Regular gift — gives money
+🛡 Shield — protects you from one bomb
+💣 Bomb — deals damage
+❗❗(If you have a shield and catch a bomb, 
+the shield breaks, but you receive bonus money)
+
+🏆 Levels & Difficulty
+The game features multiple levels.
+1)With each level:
+2)more gifts appear
+3)gifts fall faster
+4)you earn more money
+5)After the final level, Endless Mode begins, 
+where you can farm money and set records.
+
+🎯 High Score
+1)Your goal is to survive as long as possible and 
+earn as much money as you can.
+2)Your best result is saved as a high score.
+
+
+"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 515.0
+offset_top = 130.0
+offset_right = 947.0
+offset_bottom = 333.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_p31a4")
+text = "💰 Money:
+
+🔹 Run Money
+1)Earned during a run
+2)Spent on upgrades while playing
+3)Lost when you die
+🔸 Global Money:
+1)Earned after death
+2)Saved permanently
+3)Spent in the global shop from the main menu"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 513.0
+offset_top = 349.0
+offset_right = 1217.0
+offset_bottom = 684.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_p31a4")
+text = "🛍 Global Shop:
+In the global shop, you can buy permanent abilities:
+🧲 Magnet — attracts nearby gifts
+⚡ Dash — allows quick movement
+🐢 Slow Motion — slows down falling gifts
+🤞Skins and new upgrades may be added in the future.
+
+📈 In-Run Upgrades:
+During a run, you can upgrade your bag:
+⚡ Movement speed
+📏 Bag size
+❤️+5 health
+❗Each upgrade becomes more expensive at higher levels."
+
+[node name="exit" type="Button" parent="."]
+offset_left = 25.999939
+offset_top = 15.999998
+offset_right = 194.99994
+offset_bottom = 65.0
+text = "exit"
+
+[node name="exit-button-anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(105.00003, 40)
+scale = Vector2(3.8749995, 3.8750002)
+sprite_frames = SubResource("SpriteFrames_mqdaa")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 858.0
+offset_top = 75.0
+offset_right = 902.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("1_p31a4")
+text = "V 0.2.9"
+
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxd4ex80q3awy"]
+[gd_scene load_steps=31 format=3 uid="uid://bxd4ex80q3awy"]
 
 [ext_resource type="Script" uid="uid://tl31el5x4gky" path="res://script/menu.gd" id="1_e5g8k"]
 [ext_resource type="Texture2D" uid="uid://d4h0xu483448g" path="res://assets/10875a562ac60a68b93ab40ce42e35c7.jpg" id="2_8hxod"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="6_1qlln"]
 [ext_resource type="Texture2D" uid="uid://uga7yslybihr" path="res://assets/play anim.png" id="8_wd6lm"]
 [ext_resource type="Texture2D" uid="uid://de0rbicluq3uv" path="res://assets/exit.png" id="9_nuiae"]
+[ext_resource type="Texture2D" uid="uid://cwiv3tfbqvo7w" path="res://assets/message.png" id="10_pb5j1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vi6sp"]
 atlas = ExtResource("3_xs5te")
@@ -236,7 +237,7 @@ offset_top = 605.0
 offset_right = 65.0
 offset_bottom = 628.0
 theme_override_fonts/font = ExtResource("6_1qlln")
-text = "V 0.2.7"
+text = "V 0.2.9"
 
 [node name="play-button-anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(560, 186)
@@ -261,6 +262,29 @@ theme_override_fonts/font = ExtResource("6_1qlln")
 theme_override_font_sizes/font_size = 32
 text = "your record:5"
 
+[node name="tutorial" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 61.0
+offset_top = 312.0
+offset_right = 269.0
+offset_bottom = 650.0
+
+[node name="Message" type="Sprite2D" parent="."]
+position = Vector2(347, 319.00003)
+scale = Vector2(2.6875017, 2.6875017)
+texture = ExtResource("10_pb5j1")
+
+[node name="Label" type="Label" parent="Message"]
+offset_left = -16.372055
+offset_top = -5.2092743
+offset_right = 89.627945
+offset_bottom = 29.790726
+scale = Vector2(0.35, 0.35)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1qlln")
+text = "maybe you 
+need help?"
+
 [connection signal="mouse_entered" from="play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
@@ -270,3 +294,6 @@ text = "your record:5"
 [connection signal="mouse_entered" from="shop" to="." method="_on_shop_mouse_entered"]
 [connection signal="mouse_exited" from="shop" to="." method="_on_shop_mouse_exited"]
 [connection signal="pressed" from="shop" to="." method="_on_shop_pressed"]
+[connection signal="mouse_entered" from="tutorial" to="." method="_on_tutorial_mouse_entered"]
+[connection signal="mouse_exited" from="tutorial" to="." method="_on_tutorial_mouse_exited"]
+[connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]

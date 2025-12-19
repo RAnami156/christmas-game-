@@ -1,11 +1,32 @@
-[gd_scene load_steps=38 format=3 uid="uid://bf6ouahb5e8ea"]
+[gd_scene load_steps=44 format=3 uid="uid://bf6ouahb5e8ea"]
 
 [ext_resource type="Texture2D" uid="uid://c7dq8o2ldmd0l" path="res://assets/1.png" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://dmh6tj8l7ueqt" path="res://script/player.gd" id="1_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://cjx3qm0lgipfh" path="res://assets/idle.png" id="2_ct4mp"]
+[ext_resource type="Texture2D" uid="uid://csimm7utc3pia" path="res://assets/play anim2.png" id="2_hp4bs"]
 [ext_resource type="Texture2D" uid="uid://bvwn3v5dppnq3" path="res://assets/NY_idle.png" id="3_ct4mp"]
 [ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="6_hp4bs"]
 [ext_resource type="Texture2D" uid="uid://bq0p16rtg8f75" path="res://addons/shield.png" id="6_oh5ij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qucqc"]
+atlas = ExtResource("2_hp4bs")
+region = Rect2(0, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsw3c"]
+atlas = ExtResource("2_hp4bs")
+region = Rect2(33, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1uwf"]
+atlas = ExtResource("2_hp4bs")
+region = Rect2(66, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ie14"]
+atlas = ExtResource("2_hp4bs")
+region = Rect2(99, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk8el"]
+atlas = ExtResource("2_hp4bs")
+region = Rect2(132, 0, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh5ij"]
 atlas = ExtResource("1_fvtld")
@@ -65,6 +86,26 @@ region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j4wxg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qucqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsw3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1uwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ie14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk8el")
+}],
+"loop": true,
+"name": &"2_idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oh5ij")

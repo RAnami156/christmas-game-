@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://d3ee0yqlg3jme"]
+[gd_scene load_steps=51 format=3 uid="uid://d3ee0yqlg3jme"]
 
 [ext_resource type="Script" uid="uid://cyvlwhygoftgv" path="res://script/level.gd" id="1_7g0b6"]
 [ext_resource type="PackedScene" uid="uid://bf6ouahb5e8ea" path="res://scene/player.tscn" id="1_s4405"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://54i2n36ie1oa" path="res://script/level_santa.gd" id="9_kfbl3"]
 [ext_resource type="Texture2D" uid="uid://battkq38m722l" path="res://assets/level-backround-Sheet.png" id="10_3u5es"]
 [ext_resource type="Texture2D" uid="uid://cp62ltl12seg0" path="res://assets/tileset2.png" id="11_oxop7"]
-[ext_resource type="PackedScene" uid="uid://cje7lc3cvl4tk" path="res://scene/dollar.tscn" id="11_qucoa"]
 [ext_resource type="FontFile" uid="uid://ifayaxh2nsqd" path="res://minecraft.ttf" id="12_rd7b3"]
 [ext_resource type="Texture2D" uid="uid://dbqa5by3eofjl" path="res://assets/small items/hearts.png" id="16_ns1e4"]
 [ext_resource type="Texture2D" uid="uid://dl7calpphq4i0" path="res://assets/small items/speed.png" id="17_rd7b3"]
@@ -686,10 +685,6 @@ offset_bottom = 171.0
 theme_override_fonts/font = ExtResource("12_rd7b3")
 theme_override_font_sizes/font_size = 80
 text = "Level 1"
-
-[node name="dollar" parent="." instance=ExtResource("11_qucoa")]
-position = Vector2(398, 239)
-scale = Vector2(2, 2)
 
 [connection signal="mouse_entered" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_mouse_entered"]
 [connection signal="mouse_exited" from="mini_shop/improvements/speed/speed_button" to="mini_shop" method="_on_speed_button_mouse_exited"]

@@ -50,10 +50,10 @@ func _physics_process(delta: float) -> void:
 		
 	#DASH
 	if Global.dash_unlock and Global.dash_quantity > 0 and not is_dashing:
-		if Input.is_action_just_pressed("left"):
+		if Input.is_action_just_pressed("left dash"):
 			dash_to(Vector2(268, 596))
 			Global.dash_quantity -= 1
-		elif Input.is_action_just_pressed("right"):
+		elif Input.is_action_just_pressed("right dash"):
 			dash_to(Vector2(861, 596))
 			Global.dash_quantity -= 1
 	

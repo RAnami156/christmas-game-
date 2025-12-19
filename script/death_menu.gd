@@ -56,3 +56,11 @@ func _on_exit_mouse_entered() -> void:
 
 func _on_exit_mouse_exited() -> void:
 	exit_anim.play("idle")
+
+
+func _on_menu_mouse_entered() -> void:
+	$AnimatedSprite2D.play("hover")
+
+
+func _on_menu_mouse_exited() -> void:
+	$AnimatedSprite2D.play("default")

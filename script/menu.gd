@@ -56,3 +56,15 @@ func _on_exit_mouse_entered() -> void:
 
 func _on_exit_mouse_exited() -> void:
 	anim_buttonExit.play("idle")
+
+
+func _on_tutorial_pressed() -> void:
+	get_tree().change_scene_to_file("res://scene/tutorial.tscn")
+
+
+func _on_tutorial_mouse_entered() -> void:
+	$Message.visible = false
+
+
+func _on_tutorial_mouse_exited() -> void:
+	$Message.visible = true
