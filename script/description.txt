@@ -138,6 +138,9 @@ V 0.2.8
 - Added dollar
 
 V 0.2.9
+- Added new player animation
+- Added tutorial (UI + logic)
+- Fix some problems
 
 FUTURE
 - Added stat 

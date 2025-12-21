@@ -319,7 +319,6 @@ position = Vector2(576.99994, 531)
 [node name="interface" parent="player" instance=ExtResource("3_u2b8d")]
 
 [node name="Label2" type="Label" parent="player/interface"]
-visible = false
 offset_left = 716.0
 offset_top = 27.0
 offset_right = 756.0
@@ -330,14 +329,6 @@ text = "ads"
 position = Vector2(576, 324)
 limit_enabled = false
 limit_left = 500
-
-[node name="right" type="Label" parent="."]
-z_index = 1
-offset_left = 952.0
-offset_top = 20.0
-offset_right = 1204.0
-offset_bottom = 205.0
-text = "тут будут статистика"
 
 [node name="collision" type="Node2D" parent="."]
 

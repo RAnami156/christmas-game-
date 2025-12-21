@@ -150,8 +150,8 @@ modulate = Color(1, 1, 0, 1)
 sprite_frames = SubResource("SpriteFrames_xcq4i")
 animation = &"Idle"
 autoplay = "Idle"
-frame = 9
-frame_progress = 0.8978818
+frame = 2
+frame_progress = 0.8649372
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ar8h4")
