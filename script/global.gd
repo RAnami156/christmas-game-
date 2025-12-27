@@ -16,12 +16,12 @@ var loose = false
 var money_plus = 1
 var score = 0
 var current_money = 00
-var global_money = 0
+var global_money = 00
 var record_score = 0 
 var level = 0
 
 var loose_count = 20
 
 #SHOP
-var dash_unlock = false
-var dash_quantity = 0
+var dash_unlock = true
+var dash_quantity = 3

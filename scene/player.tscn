@@ -385,7 +385,6 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_s4jxa")
 
 [node name="shield" type="AnimatedSprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.7176471)
 position = Vector2(-4.7683716e-07, 18.181818)
 scale = Vector2(6.931818, 6.931819)
