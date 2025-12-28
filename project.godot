@@ -15,7 +15,7 @@ config/version="0.2.9"
 run/main_scene="uid://bxd4ex80q3awy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="uid://56xxvmjfaylx"
-config/icon="uid://b2dc6fo5vnql1"
+config/icon="uid://d1iee6ks8geom"
 
 [autoload]
 
