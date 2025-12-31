@@ -192,6 +192,85 @@ position = Vector2(568.00006, 321.5)
 scale = Vector2(0.94500005, 1.0750002)
 texture = ExtResource("2_8hxod")
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(981, -115)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(780, -79)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(559, -98)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(1110, 110)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(359, -75)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(158, -112)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
+[node name="CPUParticles2D7" type="CPUParticles2D" parent="Node2D"]
+position = Vector2(1285, 247)
+amount = 300
+lifetime = 2.0
+speed_scale = 0.2
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(-450, 1000)
+scale_amount_min = 1.5
+scale_amount_max = 1.5
+
 [node name="play" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 366.0
